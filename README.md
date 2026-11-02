@@ -28,22 +28,7 @@ Storage Seals retain their contents when removed from an Archive. You cannot sto
 
 ## Crafting
 
-All eleven recipes are available at the **Arcane Workbench → Misc**. Generic ingredients accept any log, crystal shard, brick, or small chest from the corresponding group. Seal upgrades require empty seals.
-
-See [recipes and quantities](docs/crafting.md).
-
-## Inventory controls
-
-The Catalog combines your inventory, hotbar, search, and sorting by name or quantity. The network list automatically reorganizes after withdrawals.
-
-- Drag items to move them.
-- Shift + left-click to transfer quickly.
-- Shift + right-click to select half a stack.
-- Hold the right mouse button and drag to distribute one item per slot.
-- Double left-click to combine matching stacks.
-- Left-click the original slot to cancel your selection.
-
-Catalog and Archive use page-owned tooltips styled after the game because the tooltips would stay in the screen even after closing the interface.
+All eleven recipes are available at the **Arcane Workbench → Misc**.
 
 ## License
 
