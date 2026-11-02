@@ -5,8 +5,6 @@ __pycache__/
 *.pyc
 /telemetry/
 /asset-validation.log
-/config/crafting_recipes.json.bak
-/config/crafting_recipes.json.tmp
 
 # Local design exports and unpacked delivery bundles
 /recipes/*.af

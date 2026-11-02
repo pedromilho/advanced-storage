@@ -1,17 +1,5 @@
 # Advanced Storage
 
-## Local crafting planner
-
-- The recipe editor runs only on localhost (`127.0.0.1:8765`), per the user's
-  request on 2026-11-02. No hosting or publication.
-- Reads real inventory thumbnails and English/Portuguese names from the local
-  Hytale `Assets.zip`, plus current mod assets. Names of mod items stay in English.
-- Covers the four main blocks and five Storage Seal tiers. Technical conduit
-  shapes are not separate crafting outputs.
-- Recipes start empty. Ingredients, quantities, output count, bench, time and
-  notes are saved to `config/crafting_recipes.json`, independently of game assets.
-- Planning/approval does not itself install recipes in the game.
-
 ## Confirmed decisions
 
 - Target game: **Hytale**, not Minecraft. Refined Storage is the inspiration.
