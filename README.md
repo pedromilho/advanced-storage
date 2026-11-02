@@ -1,42 +1,42 @@
 # Advanced Storage — Hytale
 
-Mod de armazenamento com tema de magia e biblioteca medieval. Esta é a beta **0.1.0**, para **Hytale 0.7.5**.
+A magical storage mod with a medieval library theme. **Version 0.1.0 beta**, for **Hytale 0.7.5**.
 
-## Instalação
+## Installation
 
-Baixe `advanced-storage-0.1.0-beta.jar` na [página de releases](https://github.com/pedromilho/advanced-storage/releases). Coloque somente esse arquivo na pasta `UserData/Mods` e habilite **AdvancedStorage** no mundo.
+Download `advanced-storage-0.1.0-beta.jar` from the [releases page](https://github.com/pedromilho/advanced-storage/releases). Place the file in `UserData/Mods` and enable **AdvancedStorage** in your world.
 
-O JAR contém código, modelos, texturas, receitas e interfaces. Não instale os antigos `advanced-storage-0.1.0.zip` e `advanced-storage-runtime-0.1.0.jar` junto com ele. Faça a substituição com o mundo fechado.
+The JAR includes the code, models, textures, recipes, and interfaces. When upgrading from the old two-file installation, remove `advanced-storage-0.1.0.zip` and `advanced-storage-runtime-0.1.0.jar`. Close your world before replacing mod files.
 
-## A rede
+## Setting up the network
 
-Monte uma rede conectando **Seal Archive → Runic Conduit → Arcane Core → Runic Conduit → Runic Catalog**.
+Connect **Seal Archive → Runic Conduit → Arcane Core → Runic Conduit → Runic Catalog**.
 
-- **Arcane Core:** ativa a rede e mostra o esquema dos blocos conectados.
-- **Seal Archive:** recebe quatro Storage Seals em slots horizontais.
-- **Runic Conduit:** conecta os blocos automaticamente nas seis direções.
-- **Runic Catalog:** permite pesquisar, ordenar, depositar e retirar itens.
-- **Blank Seal** e **Runic Book:** componentes de fabricação.
+- **Arcane Core:** activates the network and displays its connected blocks.
+- **Seal Archive:** holds four Storage Seals in horizontal slots.
+- **Runic Conduit:** automatically connects blocks in all six directions.
+- **Runic Catalog:** lets you search, sort, deposit, and withdraw items.
+- **Blank Seal** and **Runic Book:** crafting components.
 
-Os seals guardam seus itens ao serem removidos do Archive.
+Storage Seals retain their contents when removed from an Archive.
 
-| Seal | Capacidade em itens individuais |
+| Seal | Capacity in individual items |
 | --- | ---: |
-| Tier 1 | 1.000 |
-| Tier 2 | 4.000 |
-| Tier 3 | 16.000 |
-| Tier 4 | 64.000 |
-| Tier 5 | 128.000 |
+| Tier 1 | 1,000 |
+| Tier 2 | 4,000 |
+| Tier 3 | 16,000 |
+| Tier 4 | 64,000 |
+| Tier 5 | 128,000 |
 
-## Fabricação
+## Crafting
 
-As onze receitas ficam na **Arcane Workbench → Misc**. Ingredientes genéricos aceitam qualquer tronco, fragmento de cristal, tijolo ou baú pequeno do grupo correspondente. Os upgrades de seals exigem seals vazios.
+All eleven recipes are available at the **Arcane Workbench → Misc**. Generic ingredients accept any log, crystal shard, brick, or small chest from the corresponding group. Seal upgrades require empty seals.
 
-Veja [receitas e quantidades](docs/crafting.md). A fonte das receitas é [advanced-storage-crafts.json](recipes/advanced-storage-crafts.json), com os dois componentes adicionais definidos em `tools/crafting.py`.
+See [recipes and quantities](docs/crafting.md).
 
-## Comando de ingredientes
+## Ingredient command
 
-`/advancedstorage <item>` entrega os ingredientes de uma execução da receita, desde que haja espaço para o kit inteiro. Requer Creative ou permissão administrativa.
+`/advancedstorage <item>` gives you the ingredients for one crafting batch, provided your inventory has room for the entire set. Requires Creative mode or administrative permission.
 
 ```text
 /advancedstorage seal_archive
@@ -48,40 +48,21 @@ Veja [receitas e quantidades](docs/crafting.md). A fonte das receitas é [advanc
 /advancedstorage storage_seal_tier_1
 ```
 
-Os tiers vão de `1` a `5`. IDs completos também são aceitos. Uma receita de Runic Conduit produz seis unidades.
+Seal tiers range from `1` to `5`. Full item IDs are also accepted. One Runic Conduit recipe produces six conduits.
 
-## Interfaces
+## Inventory controls
 
-O Catalog integra inventário, hotbar, pesquisa e ordenação por nome ou quantidade. A lista se reorganiza após as retiradas. Suporta arraste, Shift + clique esquerdo, divisão com Shift + clique direito, distribuição com botão direito e junção por duplo clique esquerdo. Um clique esquerdo na origem cancela a seleção.
+The Catalog combines your inventory, hotbar, search, and sorting by name or quantity. The network list automatically reorganizes after withdrawals.
 
-Catalog e Archive usam um tooltip próprio com o estilo do jogo para evitar a persistência do tooltip após fechar a tela. Isso se aplica somente às interfaces do mod.
+- Drag items to move them.
+- Shift + left-click to transfer quickly.
+- Shift + right-click to select half a stack.
+- Hold the right mouse button and drag to distribute one item per slot.
+- Double left-click to combine matching stacks.
+- Left-click the original slot to cancel your selection.
 
-## Compilar e verificar
+Catalog and Archive use page-owned tooltips styled after the game. This affects only the mod's interfaces.
 
-Requer Windows, Python 3.10+, Pillow, JDK 25 e uma instalação local do Hytale 0.7.5. O servidor e o arquivo `Assets.zip` do Hytale não são distribuídos neste repositório. Os scripts usam por padrão `D:/Games/Hytale/install/release/package/game/latest`.
+## License
 
-```powershell
-python -m pip install Pillow
-./tools/build_runtime.ps1
-python tools/check_pack.py
-python tools/test_package_mod.py
-./tools/run_connection_checks.ps1
-```
-
-O arquivo instalável é `dist/advanced-storage-0.1.0.jar`. O ZIP em `dist` é apenas um intermediário de build.
-
-Para instalar a build local e migrar uma instalação antiga:
-
-```powershell
-./tools/build_runtime.ps1 -InstallTo "D:\Games\Hytale\UserData\Mods"
-```
-
-O instalador guarda os arquivos substituídos em `UserData/AdvancedStorageBackups`. Os testes de integração usam um servidor e um mundo isolados em `.runtime/connection-checks`.
-
-## Editor de receitas
-
-Execute `python tools/recipe_editor.py` e abra <http://127.0.0.1:8765>. O editor salva rascunhos em `config/crafting_recipes.json`; não modifica o jogo diretamente. Veja [a documentação do editor](recipe-editor/README.md).
-
-## Licença
-
-Veja [LICENSE](LICENSE). Hytale e seus assets originais pertencem aos respectivos titulares.
+See [LICENSE](LICENSE). Hytale and its original assets belong to their respective owners.
