@@ -1,0 +1,1338 @@
+{
+  "meta": {
+    "format_version": "5.0",
+    "model_format": "hytale_prop",
+    "box_uv": false
+  },
+  "name": "Storage Seal - Tier 1",
+  "resolution": {
+    "width": 256,
+    "height": 256
+  },
+  "elements": [
+    {
+      "name": "Parchment",
+      "type": "cube",
+      "uuid": "d34a7bc1-90b9-401b-838d-d1e34640de26",
+      "from": [
+        -7,
+        5,
+        -0.5
+      ],
+      "to": [
+        7,
+        27,
+        0.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            58,
+            90
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            60,
+            2,
+            116,
+            90
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            118,
+            2,
+            122,
+            90
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            124,
+            2,
+            128,
+            90
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            130,
+            2,
+            186,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            188,
+            2,
+            244,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Upper roll",
+      "type": "cube",
+      "uuid": "78f5b50d-c5af-42c6-b553-c617bc87675d",
+      "from": [
+        -8,
+        26,
+        -1
+      ],
+      "to": [
+        8,
+        28,
+        1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            92,
+            66,
+            100
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            68,
+            92,
+            132,
+            100
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            134,
+            92,
+            142,
+            100
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            144,
+            92,
+            152,
+            100
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            154,
+            92,
+            218,
+            100
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            2,
+            102,
+            66,
+            110
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Lower roll",
+      "type": "cube",
+      "uuid": "0d0e4b52-f6c1-4925-bc5d-5889d83248f1",
+      "from": [
+        -8,
+        4,
+        -1
+      ],
+      "to": [
+        8,
+        6,
+        1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            68,
+            102,
+            132,
+            110
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            134,
+            102,
+            198,
+            110
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            200,
+            102,
+            208,
+            110
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            210,
+            102,
+            218,
+            110
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            2,
+            112,
+            66,
+            120
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            68,
+            112,
+            132,
+            120
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Upper left clasp",
+      "type": "cube",
+      "uuid": "01ba1e22-5743-4d77-80ad-daf7ff944b6c",
+      "from": [
+        -9,
+        25.5,
+        -1.5
+      ],
+      "to": [
+        -7,
+        28.5,
+        1.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            134,
+            112,
+            142,
+            124
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            144,
+            112,
+            152,
+            124
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            154,
+            112,
+            166,
+            124
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            168,
+            112,
+            180,
+            124
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            182,
+            112,
+            190,
+            124
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            192,
+            112,
+            200,
+            124
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Upper right clasp",
+      "type": "cube",
+      "uuid": "93bf5c8d-8565-4785-98ac-5416d039c5be",
+      "from": [
+        7,
+        25.5,
+        -1.5
+      ],
+      "to": [
+        9,
+        28.5,
+        1.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            202,
+            112,
+            210,
+            124
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            212,
+            112,
+            220,
+            124
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            222,
+            112,
+            234,
+            124
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            236,
+            112,
+            248,
+            124
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            2,
+            126,
+            10,
+            138
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            12,
+            126,
+            20,
+            138
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Lower left clasp",
+      "type": "cube",
+      "uuid": "a16c9caa-2cc3-4741-848f-93b22aeab269",
+      "from": [
+        -9,
+        3.5,
+        -1.5
+      ],
+      "to": [
+        -7,
+        6.5,
+        1.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            22,
+            126,
+            30,
+            138
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            126,
+            40,
+            138
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            42,
+            126,
+            54,
+            138
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            56,
+            126,
+            68,
+            138
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            70,
+            126,
+            78,
+            138
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            80,
+            126,
+            88,
+            138
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Lower right clasp",
+      "type": "cube",
+      "uuid": "ddfd3239-c472-413c-be10-a9cf74ba9d53",
+      "from": [
+        7,
+        3.5,
+        -1.5
+      ],
+      "to": [
+        9,
+        6.5,
+        1.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            90,
+            126,
+            98,
+            138
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            100,
+            126,
+            108,
+            138
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            110,
+            126,
+            122,
+            138
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            124,
+            126,
+            136,
+            138
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            138,
+            126,
+            146,
+            138
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            148,
+            126,
+            156,
+            138
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Runic plate",
+      "type": "cube",
+      "uuid": "12141a6c-42b4-4706-a20d-d7e7e18205bc",
+      "from": [
+        -4,
+        12,
+        0.5
+      ],
+      "to": [
+        4,
+        20,
+        1.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            158,
+            126,
+            190,
+            158
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            192,
+            126,
+            224,
+            158
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            226,
+            126,
+            230,
+            158
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            232,
+            126,
+            236,
+            158
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            2,
+            160,
+            34,
+            164
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            36,
+            160,
+            68,
+            164
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Upper ribbon",
+      "type": "cube",
+      "uuid": "b21329c7-6e1b-4176-b1d2-c257bf8774d8",
+      "from": [
+        -1,
+        20,
+        0.5
+      ],
+      "to": [
+        1,
+        26,
+        1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            70,
+            160,
+            78,
+            184
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            80,
+            160,
+            88,
+            184
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            90,
+            160,
+            92,
+            184
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            94,
+            160,
+            96,
+            184
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            98,
+            160,
+            106,
+            162
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            108,
+            160,
+            116,
+            162
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Lower ribbon",
+      "type": "cube",
+      "uuid": "3506f7b3-018a-4618-9a42-9159b30127b2",
+      "from": [
+        -1,
+        6,
+        0.5
+      ],
+      "to": [
+        1,
+        12,
+        1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            118,
+            160,
+            126,
+            184
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            128,
+            160,
+            136,
+            184
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            138,
+            160,
+            140,
+            184
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            142,
+            160,
+            144,
+            184
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            146,
+            160,
+            154,
+            162
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            156,
+            160,
+            164,
+            162
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Tier plate",
+      "type": "cube",
+      "uuid": "1a7f6768-fd01-4e10-89a8-1d264f0b2fc6",
+      "from": [
+        -5,
+        7,
+        1
+      ],
+      "to": [
+        5,
+        9,
+        1.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            166,
+            160,
+            206,
+            168
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            208,
+            160,
+            248,
+            168
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            250,
+            160,
+            252,
+            168
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            2,
+            186,
+            4,
+            194
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            6,
+            186,
+            46,
+            188
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            48,
+            186,
+            88,
+            188
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Runic plate (back)",
+      "type": "cube",
+      "uuid": "d8a84fa9-c52d-498b-92d6-248c184a7dc6",
+      "from": [
+        -4,
+        12,
+        -1.5
+      ],
+      "to": [
+        4,
+        20,
+        -0.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            90,
+            186,
+            122,
+            218
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            124,
+            186,
+            156,
+            218
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            158,
+            186,
+            162,
+            218
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            164,
+            186,
+            168,
+            218
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            170,
+            186,
+            202,
+            190
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            204,
+            186,
+            236,
+            190
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Upper ribbon (back)",
+      "type": "cube",
+      "uuid": "0a1f0ddd-915a-44e0-ac6f-5ae6070589d1",
+      "from": [
+        -1,
+        20,
+        -1
+      ],
+      "to": [
+        1,
+        26,
+        -0.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            238,
+            186,
+            246,
+            210
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            2,
+            220,
+            10,
+            244
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            12,
+            220,
+            14,
+            244
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            220,
+            18,
+            244
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            20,
+            220,
+            28,
+            222
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            30,
+            220,
+            38,
+            222
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Lower ribbon (back)",
+      "type": "cube",
+      "uuid": "934a456a-384f-4b0c-9174-3c23f678c998",
+      "from": [
+        -1,
+        6,
+        -1
+      ],
+      "to": [
+        1,
+        12,
+        -0.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            40,
+            220,
+            48,
+            244
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            50,
+            220,
+            58,
+            244
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            60,
+            220,
+            62,
+            244
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            64,
+            220,
+            66,
+            244
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            68,
+            220,
+            76,
+            222
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            78,
+            220,
+            86,
+            222
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Tier plate (back)",
+      "type": "cube",
+      "uuid": "628c14e8-f4b5-4fcd-a1b5-d4009ddb2a3d",
+      "from": [
+        -5,
+        7,
+        -1.5
+      ],
+      "to": [
+        5,
+        9,
+        -1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "shading_mode": "flat",
+      "double_sided": false,
+      "faces": {
+        "north": {
+          "uv": [
+            88,
+            220,
+            128,
+            228
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            130,
+            220,
+            170,
+            228
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            172,
+            220,
+            174,
+            228
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            176,
+            220,
+            178,
+            228
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            180,
+            220,
+            220,
+            222
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            2,
+            246,
+            42,
+            248
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "groups": [],
+  "outliner": [
+    "d34a7bc1-90b9-401b-838d-d1e34640de26",
+    "78f5b50d-c5af-42c6-b553-c617bc87675d",
+    "0d0e4b52-f6c1-4925-bc5d-5889d83248f1",
+    "01ba1e22-5743-4d77-80ad-daf7ff944b6c",
+    "93bf5c8d-8565-4785-98ac-5416d039c5be",
+    "a16c9caa-2cc3-4741-848f-93b22aeab269",
+    "ddfd3239-c472-413c-be10-a9cf74ba9d53",
+    "12141a6c-42b4-4706-a20d-d7e7e18205bc",
+    "b21329c7-6e1b-4176-b1d2-c257bf8774d8",
+    "3506f7b3-018a-4618-9a42-9159b30127b2",
+    "1a7f6768-fd01-4e10-89a8-1d264f0b2fc6",
+    "d8a84fa9-c52d-498b-92d6-248c184a7dc6",
+    "0a1f0ddd-915a-44e0-ac6f-5ae6070589d1",
+    "934a456a-384f-4b0c-9174-3c23f678c998",
+    "628c14e8-f4b5-4fcd-a1b5-d4009ddb2a3d"
+  ],
+  "textures": [
+    {
+      "name": "Storage Seal - Tier 1.png",
+      "path": "C:\\Users\\pedro\\Documents\\ChatGPT\\advanced storage\\modelos\\seals\\Storage Seal - Tier 1.png",
+      "id": "0",
+      "uuid": "8209c4a8-0d25-4def-8f0c-1e22a040506d",
+      "width": 256,
+      "height": 256,
+      "uv_width": 256,
+      "uv_height": 256,
+      "mode": "bitmap",
+      "saved": true,
+      "render_mode": "default",
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

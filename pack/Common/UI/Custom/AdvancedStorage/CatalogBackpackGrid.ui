@@ -1,0 +1,8 @@
+$C = "../Common.ui";
+@StorageSlots = ItemGridStyle(SlotSize: 56, SlotIconSize: 48, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+@PlayerSlots = ItemGridStyle(SlotSize: 48, SlotIconSize: 44, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+ItemGrid #Backpack {
+            FlexWeight: 1; SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None;
+            ShowScrollbar: true; ScrollbarStyle: $C.@DefaultScrollbarStyle; Style: @PlayerSlots;
+          }

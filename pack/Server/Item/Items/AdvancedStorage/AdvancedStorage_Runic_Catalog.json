@@ -1,0 +1,111 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Runic_Catalog.name",
+    "Description": "server.items.AdvancedStorage_Runic_Catalog.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Runic_Catalog.png",
+  "IconProperties": {
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Scale": 0.5,
+    "Translation": [
+      0,
+      -17
+    ]
+  },
+  "MaxStack": 25,
+  "BlockType": {
+    "CustomModel": "Blocks/AdvancedStorage/Runic_Catalog.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AdvancedStorage/Runic_Catalog_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "Tags": {
+      "AdvancedStorageRole": [
+        "Catalog"
+      ]
+    },
+    "HitboxType": "AdvancedStorage_Runic_Catalog",
+    "VariantRotation": "NESW",
+    "IgnoreSupportWhenPlaced": true,
+    "Flags": {},
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "PhysicalMaterialId": "Wood",
+    "ParticleColor": "#402B1C",
+    "TextureComputedColor": "#402B1C",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods"
+      }
+    },
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AdvancedStorageOpen"
+          }
+        ]
+      }
+    },
+    "InteractionHint": "server.interactionHints.openDoor"
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Bench_WorkBench",
+        "Quantity": 1
+      },
+      {
+        "ResourceTypeId": "Wood_Trunk",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AdvancedStorage_Runic_Book",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Runic_Catalog",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

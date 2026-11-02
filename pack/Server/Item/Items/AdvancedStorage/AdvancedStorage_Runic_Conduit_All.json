@@ -1,0 +1,90 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Runic_Conduit_All.name",
+    "Description": "server.items.AdvancedStorage_Runic_Conduit_All.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Metal"
+  ],
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Runic_Conduit_All.png",
+  "IconProperties": {
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Scale": 0.65,
+    "Translation": [
+      0,
+      -15
+    ]
+  },
+  "MaxStack": 100,
+  "BlockType": {
+    "CustomModel": "Blocks/AdvancedStorage/Runic_Conduit_All.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AdvancedStorage/Runic_Conduit_All_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "RequiresAlphaBlending": true,
+    "HitboxType": "AdvancedStorage_Runic_Conduit_All",
+    "VariantRotation": "NESW",
+    "IgnoreSupportWhenPlaced": true,
+    "Flags": {},
+    "BlockParticleSetId": "Metal",
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "ParticleColor": "#AA592F",
+    "TextureComputedColor": "#AA592F",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "ConnectedBlockRuleSet": {
+      "Type": "Patterned",
+      "RuleSetId": "AdvancedStorage_Conduit",
+      "TemplatedShapes": {
+        "Straight": {
+          "Block": "AdvancedStorage_Runic_Conduit"
+        },
+        "Curve": {
+          "Block": "AdvancedStorage_Runic_Conduit_Curve"
+        },
+        "T": {
+          "Block": "AdvancedStorage_Runic_Conduit_T"
+        },
+        "Cross": {
+          "Block": "AdvancedStorage_Runic_Conduit_Cross"
+        },
+        "Up": {
+          "Block": "AdvancedStorage_Runic_Conduit_Up"
+        },
+        "UpDown": {
+          "Block": "AdvancedStorage_Runic_Conduit_UpDown"
+        },
+        "All": {
+          "Block": "AdvancedStorage_Runic_Conduit_All"
+        },
+        "Corner3": {
+          "Block": "AdvancedStorage_Runic_Conduit_Corner3"
+        }
+      }
+    }
+  },
+  "ItemSoundSetId": "ISS_Items_Metal",
+  "Tags": {
+    "Type": [
+      "Metal"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ]
+  }
+}

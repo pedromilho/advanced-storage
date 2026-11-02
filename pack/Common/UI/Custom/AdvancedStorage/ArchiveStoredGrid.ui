@@ -1,0 +1,5 @@
+$C = "../Common.ui";
+@StorageSlots = ItemGridStyle(SlotSize: 56, SlotIconSize: 48, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+@PlayerSlots = ItemGridStyle(SlotSize: 56, SlotIconSize: 48, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+ItemGrid #Stored { Anchor: (Width: 240, Height: 64); SlotsPerRow: 4; AreItemsDraggable: true; InfoDisplay: None; Style: @StorageSlots; }

@@ -1,0 +1,12 @@
+{
+  "Group": "Pedro",
+  "Name": "AdvancedStorage",
+  "Version": "0.1.0",
+  "Description": "Arcane storage for Hytale: connected conduits, library blocks and five Storage Seal tiers. Work in progress.",
+  "Authors": [{ "Name": "Pedro" }],
+  "ServerVersion": "=0.7.5",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true
+}

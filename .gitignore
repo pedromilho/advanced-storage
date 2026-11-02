@@ -1,0 +1,17 @@
+build/
+dist/
+.runtime/
+__pycache__/
+*.pyc
+/telemetry/
+/asset-validation.log
+/config/crafting_recipes.json.bak
+/config/crafting_recipes.json.tmp
+
+# Local design exports and unpacked delivery bundles
+/recipes/*.af
+/recipes/*.jpg
+/docs/network-guide/original-assets/
+/docs/network-guide/advanced-storage-assets-original/
+/docs/network-guide/references/
+/docs/network-guide/*.zip

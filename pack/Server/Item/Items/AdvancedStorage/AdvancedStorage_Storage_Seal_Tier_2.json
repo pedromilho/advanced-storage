@@ -1,0 +1,73 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Storage_Seal_Tier_2.name",
+    "Description": "server.items.AdvancedStorage_Storage_Seal_Tier_2.description"
+  },
+  "PlayerAnimationsId": "Item",
+  "Categories": [
+    "Upgrade"
+  ],
+  "Quality": "Uncommon",
+  "MaxStack": 1,
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Storage_Seal_Tier_2.png",
+  "Model": "Items/AdvancedStorage/Storage_Seal_Tier_2.blockymodel",
+  "Texture": "Items/AdvancedStorage/Storage_Seal_Tier_2_Texture.png",
+  "IconProperties": {
+    "Scale": 0.8,
+    "Rotation": [
+      0,
+      15,
+      0
+    ],
+    "Translation": [
+      0,
+      -16
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Upgrade"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ],
+    "AdvancedStorageRole": [
+      "StorageSeal"
+    ],
+    "AdvancedStorageTier": [
+      "2"
+    ],
+    "AdvancedStorageCapacity": [
+      "4000"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AdvancedStorage_Storage_Seal_Tier_1",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 50
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Storage_Seal_Tier_2",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

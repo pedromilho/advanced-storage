@@ -1,0 +1,1048 @@
+{
+  "Shapes": {
+    "Straight": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Curve": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit_Curve",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "T": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit_T",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Cross": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit_Cross",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Up": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit_Up",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "UpDown": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit_UpDown",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "All": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit_All",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Corner3": {
+      "Type": "Block",
+      "Block": "AdvancedStorage_Runic_Conduit_Corner3",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Archive": {
+      "Type": "TagPattern",
+      "TagPattern": "AdvancedStorage_Archive",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Core": {
+      "Type": "TagPattern",
+      "TagPattern": "AdvancedStorage_Core",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Catalog": {
+      "Type": "TagPattern",
+      "TagPattern": "AdvancedStorage_Catalog",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    }
+  },
+  "Patterns": [
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "North": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "East": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "West": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "Up": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "Down": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {}
+      ],
+      "Output": {
+        "ShapeId": "All"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "North": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "East": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "West": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "Up": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "Down": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "UpDown"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "North": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "East": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "West": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "Up": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "Up"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "North": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "East": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "West": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Up": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "Cross"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "North": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "East": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "West": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "Up": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "Corner3"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "North": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "East": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "West": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Up": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "T"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "North": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "East": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "West": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Up": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "Curve"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "North": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "East": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "West": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Up": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "Straight"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "North": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "East": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "FaceTag",
+            "FaceTags": {
+              "South": [
+                "AdvancedStorage_Port"
+              ]
+            },
+            "MatchType": "All"
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "West": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Up": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {
+          "Yaw": "All",
+          "Pitch": "All",
+          "Roll": "All"
+        }
+      ],
+      "Output": {
+        "ShapeId": "Straight"
+      }
+    },
+    {
+      "Rule": {
+        "Type": "And",
+        "Rules": [
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "North": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "East": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "South": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "West": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Up": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          },
+          {
+            "Type": "Not",
+            "Rule": {
+              "Type": "FaceTag",
+              "FaceTags": {
+                "Down": [
+                  "AdvancedStorage_Port"
+                ]
+              },
+              "MatchType": "All"
+            }
+          }
+        ]
+      },
+      "RotationTransforms": [
+        {}
+      ],
+      "Output": {
+        "ShapeId": "Straight"
+      }
+    }
+  ],
+  "UpdateMode": "UpdatePlaceUpdate"
+}

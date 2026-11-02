@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172321">
+  <title>Crafts · Advanced Storage</title>
+  <link rel="icon" href="/api/icons/AdvancedStorage_Arcane_Core">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="/api/icons/AdvancedStorage_Arcane_Core" alt="" width="42" height="42"><div><strong>Advanced Storage</strong><span>Ateliê de receitas</span></div></div>
+    <div class="file-actions"><span id="save-status" role="status">Carregando…</span><button id="import-button" class="quiet">Importar JSON</button><button id="export-button">Exportar JSON</button><input id="import-file" type="file" accept=".json,application/json" hidden></div>
+  </header>
+  <div id="error" class="error-banner" role="alert" hidden></div>
+  <div class="layout">
+    <aside class="targets"><div class="section-heading"><h2>Receitas do mod</h2><span id="progress"></span></div><nav id="targets" aria-label="Escolher receita"></nav><p class="sidebar-note">Escolha um resultado, depois adicione os ingredientes do catálogo.</p></aside>
+    <main>
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-heading"><div><h1 id="catalog-title">Ingredientes</h1><p>Itens e miniaturas da sua instalação do Hytale.</p></div><span id="catalog-count" class="count"></span></div>
+        <div class="filters"><label class="search"><span class="sr-only">Buscar ingredientes por nome ou ID</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></svg><input id="search" type="search" placeholder="Buscar item, recurso ou ID…" autocomplete="off"><kbd>/</kbd></label><label><span class="sr-only">Categoria</span><select id="category"><option value="">Todas as categorias</option></select></label></div>
+        <div class="catalog-info"><span id="result-count"></span><span>Clique para adicionar</span></div>
+        <div id="item-grid" class="item-grid" aria-label="Catálogo de ingredientes"></div>
+        <div id="empty-search" class="empty" hidden>Nenhum item encontrado.<br><span>Tente outro nome ou categoria.</span></div>
+        <button id="load-more" class="load-more" hidden>Mostrar mais itens</button>
+      </section>
+      <section class="recipe" aria-labelledby="recipe-title">
+        <div class="recipe-heading"><img id="recipe-icon" width="72" height="72" alt=""><div><span class="caption">RESULTADO</span><h2 id="recipe-title">Selecione uma receita</h2><span id="recipe-id" class="item-id"></span></div></div>
+        <form id="recipe-form">
+          <div class="output-row"><label>Quantidade produzida<input id="output-quantity" type="number" min="1" max="9999" step="1" value="1" required></label><label>Tempo em segundos<input id="time-seconds" type="number" min="0" max="86400" step="0.1" value="1" required></label></div>
+          <label class="bench-label">Bancada de fabricação<select id="bench"><option value="">Escolher bancada…</option></select></label>
+          <div class="ingredients-heading"><h3>Ingredientes da receita</h3><span id="ingredient-count">0 itens</span></div>
+          <ul id="ingredients" class="ingredients"></ul>
+          <div id="empty-recipe" class="empty-recipe"><span class="empty-mark">+</span><strong>A receita começa aqui</strong><p>Escolha os ingredientes no catálogo.<br>As quantidades podem ser ajustadas depois.</p><a href="#catalog-title" class="browse-link">Escolher ingredientes ↓</a></div>
+          <label class="notes-label">Observações<textarea id="notes" rows="3" maxlength="2000" placeholder="Ideias de balanceamento, alternativas…"></textarea></label>
+          <div class="recipe-actions"><button id="ready-button" class="primary" type="button">Marcar como definida</button><button id="clear-button" class="quiet" type="button">Limpar receita</button></div>
+          <p class="save-note">Salvo automaticamente no projeto. As escolhas ainda não alteram os crafts dentro do jogo.</p>
+        </form>
+      </section>
+    </main>
+  </div>
+  <div id="toast" role="status" class="toast" hidden></div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+Built-in image_gen tool. References: thumbnail-reference-sheet.png and user sketch.
+
+Create a polished, legible game-guide infographic for the Hytale mod "Advanced Storage". Landscape 3:2 image, high resolution. Use the supplied actual inventory thumbnail PNGs as the exact object references; preserve their shapes, colors, distinctive features, and voxel/isometric appearance. No redesigned objects, no generic substitutes.
+
+Design: authentic Hytale inventory interface aesthetic: flat dark navy panels, desaturated blue header strips, thin inset slate-metal borders, pale gray/off-white bold readable sans-serif type. Restrained, practical game UI. No gold scrollwork, no decorative fantasy frame, no busy scenery, no technological circuitry. Every word must be clean and spelled exactly.
+
+Main title at top: "ADVANCED STORAGE".
+TOP section about 40% of canvas: centered, symmetrical network assembly schematic. Three large actual block thumbnails, arranged horizontally:
+LEFT the wooden multi-drawer Seal Archive reference, CENTER the copper Arcane Core crystal reference, RIGHT the slanted book Runic Catalog reference.
+Copper-and-glass turquoise Runic Conduit segments physically link the Archive to the Core and the Core to the Catalog, as continuous horizontal pipe runs behind the three blocks. Make the three principal block thumbnails the same perceived size. Names immediately BELOW their respective block: "Seal Archive", "Arcane Core", "Runic Catalog". A small "Runic Conduit" label centered underneath each pipe run. This is a clear diagram of how the network is built. Keep generous space, all centered.
+
+A thin horizontal divider separates top schematic and bottom crafting section.
+
+BOTTOM section: one shared crafting bench shown at the LEFT using the supplied Bench_Arcane thumbnail, prominently labeled "ARCANE WORKBENCH", with small secondary label "Misc". On the right, clearly aligned compact inventory slots show exactly the ELEVEN craftable items, organized into these rows:
+Row 1, heading "BLOCKS": 4 slots with supplied thumbnails and names BELOW each slot: "Seal Archive", "Runic Conduit", "Arcane Core", "Runic Catalog".
+Row 2, heading "COMPONENTS": 2 slots using the supplied Recipe_Page scroll thumbnail for "Blank Seal" and supplied brown Grimoire thumbnail for "Runic Book".
+Row 3, heading "STORAGE SEALS": 5 slots using the supplied five differently colored seal thumbnails in ascending order. Labels underneath: "Tier 1" and "1,000 items"; "Tier 2" and "4,000 items"; "Tier 3" and "16,000 items"; "Tier 4" and "64,000 items"; "Tier 5" and "128,000 items".
+
+Bottom slots must be compact but large enough to distinguish thumbnail details; label type must be readable. Align item rows and space them consistently. The bench at left applies to all 11 items at right; use a simple subtle bracket or divider to communicate that. Include only the labels specified above. No ingredient recipes, no long descriptions, no explanatory paragraphs, no mouse pointers, no watermarks. Give this the clarity of a genuine in-game help screen.
+REFERENCE NOTE: The first input image is a labeled contact sheet containing all 12 exact thumbnail references, with labels identifying each. Use each matched object in the specified layout, not the arrangement of the contact sheet. The second input is the user's rough composition sketch: follow its top network strip and lower crafting area.

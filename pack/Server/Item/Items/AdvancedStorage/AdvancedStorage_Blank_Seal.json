@@ -1,0 +1,60 @@
+{
+  "Model": "Items/Consumables/Recipes/Recipe.blockymodel",
+  "Texture": "Items/Consumables/Recipes/Recipe_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Recipe_Page.png",
+  "IconProperties": {
+    "Scale": 0.76,
+    "Rotation": [
+      135,
+      135,
+      0
+    ],
+    "Translation": [
+      -1,
+      5
+    ]
+  },
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Blank_Seal.name",
+    "Description": "server.items.AdvancedStorage_Blank_Seal.description"
+  },
+  "PlayerAnimationsId": "Item",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 100,
+  "Quality": "Common",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Fibre",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Tree_Sap",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 4
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Blank_Seal",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

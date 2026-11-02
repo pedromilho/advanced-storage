@@ -1,0 +1,61 @@
+$C = "../Common.ui";
+@StorageSlots = ItemGridStyle(SlotSize: 56, SlotIconSize: 48, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+@PlayerSlots = ItemGridStyle(SlotSize: 48, SlotIconSize: 44, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+Group #StorageRoot {
+$C.@PageOverlay {}
+$C.@Container {
+  Anchor: (Width: 1120, Height: 700);
+  #Title { $C.@Title { @Text = "Runic Catalog"; } }
+  #Content {
+    LayoutMode: Top;
+    Group {
+      Anchor: (Height: 44); LayoutMode: Left;
+      $C.@TextField #Search { FlexWeight: 1; PlaceholderText: "Search stored items..."; }
+      Group { Anchor: (Width: 12); }
+      $C.@SecondaryTextButton #Alphabetical { Text: "Alphabetical"; Anchor: (Width: 160); }
+      Group { Anchor: (Width: 8); }
+      $C.@SecondaryTextButton #Quantity { Text: "Quantity"; Anchor: (Width: 140); }
+    }
+    Label #Summary { Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+    Label #Order { Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+    Group {
+      FlexWeight: 1; LayoutMode: Left;
+      Group {
+        Anchor: (Width: 554); LayoutMode: Top;
+        Label { Text: "Network storage"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+        Group #StoredHost { FlexWeight: 1; LayoutMode: Top;
+ItemGrid #Stored {
+          FlexWeight: 1; SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None;
+          ShowScrollbar: true; ScrollbarStyle: $C.@DefaultScrollbarStyle; Style: @StorageSlots;
+        }
+}
+      }
+      Group { Anchor: (Width: 20); }
+      Group {
+        FlexWeight: 1; LayoutMode: Top;
+        Label { Text: "Inventory"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+        Group #InventoryHost { Anchor: (Height: 208); LayoutMode: Top;
+ItemGrid #Inventory { Anchor: (Height: 208); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None; Style: @PlayerSlots; }
+}
+        Label { Text: "Hotbar"; Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+        Group #HotbarHost { Anchor: (Height: 48); LayoutMode: Top;
+ItemGrid #Hotbar { Anchor: (Height: 48); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None; Style: @PlayerSlots; }
+}
+        Group #BackpackGroup {
+          LayoutMode: Top; FlexWeight: 1;
+          Label { Text: "Backpack"; Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+          Group #BackpackHost { FlexWeight: 1; LayoutMode: Top;
+ItemGrid #Backpack {
+            FlexWeight: 1; SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None;
+            ShowScrollbar: true; ScrollbarStyle: $C.@DefaultScrollbarStyle; Style: @PlayerSlots;
+          }
+}
+        }
+      }
+    }
+    Label #Notice { Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+  }
+}
+$C.@BackButton {}
+}

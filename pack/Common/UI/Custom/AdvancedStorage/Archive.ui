@@ -1,0 +1,48 @@
+$C = "../Common.ui";
+@StorageSlots = ItemGridStyle(SlotSize: 56, SlotIconSize: 48, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+@PlayerSlots = ItemGridStyle(SlotSize: 56, SlotIconSize: 48, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+Group #StorageRoot {
+$C.@PageOverlay {}
+$C.@Container #ArchivePanel {
+  Anchor: (Width: 570, Height: 486);
+  #Title { $C.@Title { @Text = "Seal Archive"; } }
+  #Content {
+    LayoutMode: Top;
+    Group {
+      Anchor: (Height: 64); LayoutMode: Left;
+      Group #StoredHost { Anchor: (Width: 240, Height: 64); LayoutMode: Top;
+ItemGrid #Stored { Anchor: (Width: 240, Height: 64); SlotsPerRow: 4; AreItemsDraggable: true; InfoDisplay: None; Style: @StorageSlots; }
+}
+      Group { Anchor: (Width: 16); }
+      Label #ArchiveInfo { FlexWeight: 1; Anchor: (Height: 64); Style: $C.@DefaultLabelStyle; }
+    }
+    Group {
+      FlexWeight: 1; LayoutMode: Left;
+      Group {
+        FlexWeight: 1; LayoutMode: Top;
+        Label { Text: "Inventory"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+        Group #InventoryHost { Anchor: (Height: 240); LayoutMode: Top;
+ItemGrid #Inventory { Anchor: (Height: 240); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None; Style: @PlayerSlots; }
+}
+        Label { Text: "Hotbar"; Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+        Group #HotbarHost { Anchor: (Height: 56); LayoutMode: Top;
+ItemGrid #Hotbar { Anchor: (Height: 56); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None; Style: @PlayerSlots; }
+}
+        Group #BackpackGroup {
+          LayoutMode: Top; FlexWeight: 1;
+          Label { Text: "Backpack"; Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+          Group #BackpackHost { FlexWeight: 1; LayoutMode: Top;
+ItemGrid #Backpack {
+            FlexWeight: 1; SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None;
+            ShowScrollbar: true; ScrollbarStyle: $C.@DefaultScrollbarStyle; Style: @PlayerSlots;
+          }
+}
+        }
+      }
+    }
+    Label #Notice { Visible: false; Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+  }
+}
+$C.@BackButton {}
+}

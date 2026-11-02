@@ -1,0 +1,58 @@
+{
+  "Model": "Items/Weapons/Spellbook/Grimoire.blockymodel",
+  "Texture": "Items/Weapons/Spellbook/Grimoire_Brown_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Weapon_Spellbook_Grimoire_Brown.png",
+  "IconProperties": {
+    "Scale": 0.745,
+    "Translation": [
+      -7.8,
+      -7.8
+    ],
+    "Rotation": [
+      45,
+      90,
+      0
+    ]
+  },
+  "Scale": 1.2,
+  "ItemSoundSetId": "ISS_Weapons_Books",
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Runic_Book.name",
+    "Description": "server.items.AdvancedStorage_Runic_Book.description"
+  },
+  "PlayerAnimationsId": "Item",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 100,
+  "Quality": "Common",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AdvancedStorage_Blank_Seal",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Hide_Medium",
+        "Quantity": 6
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Runic_Book",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

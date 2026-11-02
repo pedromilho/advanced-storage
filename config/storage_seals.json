@@ -1,0 +1,11 @@
+{
+  "capacity_unit": "individual_items",
+  "archive_slots": 4,
+  "tiers": [
+    { "tier": 1, "capacity": 1000, "color": "#5ACBBE", "quality": "Common" },
+    { "tier": 2, "capacity": 4000, "color": "#77CE83", "quality": "Uncommon" },
+    { "tier": 3, "capacity": 16000, "color": "#67AAEF", "quality": "Rare" },
+    { "tier": 4, "capacity": 64000, "color": "#BE8DE9", "quality": "Epic" },
+    { "tier": 5, "capacity": 128000, "color": "#F5D677", "quality": "Legendary" }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Arcane_Core.name",
+    "Description": "server.items.AdvancedStorage_Arcane_Core.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Arcane_Core.png",
+  "IconProperties": {
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Scale": 0.4,
+    "Translation": [
+      0,
+      -27
+    ]
+  },
+  "MaxStack": 25,
+  "BlockType": {
+    "CustomModel": "Blocks/AdvancedStorage/Arcane_Core.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AdvancedStorage/Arcane_Core_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "Tags": {
+      "AdvancedStorageRole": [
+        "Core"
+      ]
+    },
+    "HitboxType": "AdvancedStorage_Arcane_Core",
+    "VariantRotation": "NESW",
+    "IgnoreSupportWhenPlaced": true,
+    "Flags": {},
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "ParticleColor": "#5B5F57",
+    "TextureComputedColor": "#5B5F57",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AdvancedStorageOpen"
+          }
+        ]
+      }
+    },
+    "InteractionHint": "server.interactionHints.openDoor"
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 15
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence_Concentrated",
+        "Quantity": 1
+      },
+      {
+        "ResourceTypeId": "Crystal_Shards",
+        "Quantity": 10
+      },
+      {
+        "ResourceTypeId": "Bricks",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Void_Essence",
+        "Quantity": 1
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Arcane_Core",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}
