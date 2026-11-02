@@ -43,7 +43,7 @@ The Catalog combines your inventory, hotbar, search, and sorting by name or quan
 - Double left-click to combine matching stacks.
 - Left-click the original slot to cancel your selection.
 
-Catalog and Archive use page-owned tooltips styled after the game. This affects only the mod's interfaces.
+Catalog and Archive use page-owned tooltips styled after the game because the tooltips would stay in the screen even after closing the interface.
 
 ## License
 
