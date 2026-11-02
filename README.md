@@ -1,4 +1,4 @@
-# Advanced Storage — Hytale
+# Advanced Storage
 
 Create magical storage networks, access your items from a single interface, and keep your resources organized without the need of chests. Advanced Storage is a Refined Storage-inspired mod, themed to fit Hytale's fantasy setting.
 
