@@ -13,3 +13,6 @@ __pycache__/
 /docs/network-guide/advanced-storage-assets-original/
 /docs/network-guide/references/
 /docs/network-guide/*.zip
+
+# Temporary design lock files
+*.af~lock~
