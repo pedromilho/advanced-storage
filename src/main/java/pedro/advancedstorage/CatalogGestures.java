@@ -6,7 +6,7 @@ import java.util.*;
 
 /** A selection is a detached snapshot, never an item removed into a temporary cursor inventory. */
 public final class CatalogGestures {
-    public static final int NETWORK=-1001,INVENTORY=-1002,HOTBAR=-1003,BACKPACK=-1004;
+    public static final int NETWORK=-1001,INVENTORY=-1002,HOTBAR=-1003,BACKPACK=-1004,BENCHES=-1005,RECIPES=-1006;
     public record Section(int nativeId,ItemContainer container) {}
     public interface Commands {
         void move(int from,int slot,int quantity,int to,int targetSlot);
@@ -36,6 +36,13 @@ public final class CatalogGestures {
     }
     public boolean holding() {return selection!=null;}
     public void cancel() {selection=null;completedSource=null;rightSweep=false;visited.clear();placedOnPress.clear();}
+    Integer cancelForScroll() {
+        var source=selection;
+        if(source==null) return null;
+        cancel();
+        completedSource=source;
+        return source.grid;
+    }
     public String selectionLabel() {return selection==null?"":CatalogView.name(selection.expected)+" x "+selection.quantity;}
     public void capture() {
         if(holding()) return;
@@ -212,8 +219,9 @@ public final class CatalogGestures {
         if(!Objects.equals(expectedTarget,currentTarget) && !(ItemStack.isEmpty(expectedTarget) && ItemStack.isEmpty(currentTarget))) {
             cancel();return Result.STALE;
         }
-        // A right placement never swaps an incompatible item or a full destination stack.
-        if(one && !ItemStack.isEmpty(currentTarget) && (!currentTarget.isStackableWith(source.expected)
+        // Network deposits land in a separate slot and do not interact with the visible stack.
+        boolean networkDeposit=source.grid!=NETWORK && target.container instanceof CatalogContainer catalog && catalog.viewport!=null;
+        if(one && !networkDeposit && !ItemStack.isEmpty(currentTarget) && (!currentTarget.isStackableWith(source.expected)
                 || currentTarget.getQuantity()>=currentTarget.getItem().getMaxStack())) return Result.REJECTED;
         int quantity=one?1:source.quantity;
         if(event.quantity!=null && event.quantity>0) quantity=Math.min(quantity,event.quantity);

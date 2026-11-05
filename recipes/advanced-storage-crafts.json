@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": 187,
+  "revision": 267,
   "recipes": {
     "AdvancedStorage_Runic_Conduit": {
       "ingredients": [
@@ -84,7 +84,7 @@
           "quantity": 10
         },
         {
-          "itemId": "Rock_Stone_Brick",
+          "itemId": "Rock_Stone_Cobble",
           "quantity": 4
         },
         {
@@ -95,7 +95,7 @@
       "outputQuantity": 1,
       "timeSeconds": 1,
       "bench": "Arcanebench",
-      "notes": "pode ser qualquer crystal shard. pode ser qualquer bloco de brick.",
+      "notes": "Any crystal shard. Any cobble or natural stone block.",
       "status": "ready"
     },
     "AdvancedStorage_Storage_Seal_Tier_1": {
@@ -181,6 +181,106 @@
       "timeSeconds": 1,
       "bench": "Arcanebench",
       "notes": "",
+      "status": "ready"
+    },
+    "AdvancedStorage_Archive_Transmitter": {
+      "ingredients": [
+        {
+          "itemId": "Ingredient_Void_Essence",
+          "quantity": 1
+        },
+        {
+          "itemId": "Ingredient_Life_Essence_Concentrated",
+          "quantity": 2
+        },
+        {
+          "itemId": "Ingredient_Crystal_Cyan",
+          "quantity": 10
+        },
+        {
+          "itemId": "Ingredient_Bar_Copper",
+          "quantity": 25
+        },
+        {
+          "itemId": "Rock_Stone_Cobble",
+          "quantity": 10
+        }
+      ],
+      "outputQuantity": 1,
+      "timeSeconds": 1,
+      "bench": "Arcanebench",
+      "notes": "any crystal shard. any cobble.",
+      "status": "ready"
+    },
+    "AdvancedStorage_Travelers_Catalog": {
+      "ingredients": [
+        {
+          "itemId": "Rock_Stone_Cobble",
+          "quantity": 5
+        },
+        {
+          "itemId": "Ingredient_Bar_Copper",
+          "quantity": 5
+        },
+        {
+          "itemId": "Ingredient_Crystal_Blue",
+          "quantity": 5
+        },
+        {
+          "itemId": "Ingredient_Life_Essence_Concentrated",
+          "quantity": 1
+        }
+      ],
+      "outputQuantity": 1,
+      "timeSeconds": 1,
+      "bench": "Arcanebench",
+      "notes": "any cobble. any crystal shard.",
+      "status": "ready"
+    },
+    "AdvancedStorage_Archive_Item_Gate": {
+      "ingredients": [
+        {
+          "itemId": "Wood_Amber_Trunk",
+          "quantity": 10
+        },
+        {
+          "itemId": "Ingredient_Bar_Copper",
+          "quantity": 15
+        },
+        {
+          "itemId": "Ingredient_Life_Essence",
+          "quantity": 10
+        }
+      ],
+      "outputQuantity": 1,
+      "timeSeconds": 1,
+      "bench": "Arcanebench",
+      "notes": "any wood.",
+      "status": "ready"
+    },
+    "AdvancedStorage_Arcane_Item_Exporter": {
+      "ingredients": [
+        {
+          "itemId": "Ingredient_Life_Essence",
+          "quantity": 30
+        },
+        {
+          "itemId": "Ingredient_Crystal_Blue",
+          "quantity": 10
+        },
+        {
+          "itemId": "Ingredient_Bar_Copper",
+          "quantity": 15
+        },
+        {
+          "itemId": "Rock_Stone_Cobble",
+          "quantity": 5
+        }
+      ],
+      "outputQuantity": 1,
+      "timeSeconds": 1,
+      "bench": "Arcanebench",
+      "notes": "any crystal shard. any cobble.",
       "status": "ready"
     }
   }

@@ -20,6 +20,7 @@ public final class StorageNetwork {
     public record Pos(int x,int y,int z) { Pos add(Vector3i v) { return new Pos(x+v.x,y+v.y,z+v.z); } }
     static final Vector3i[] DIR={new Vector3i(0,0,-1),new Vector3i(1,0,0),new Vector3i(0,0,1),new Vector3i(-1,0,0),new Vector3i(0,1,0),new Vector3i(0,-1,0)};
     static final int[] OPP={2,3,0,1,5,4};
+    static final int MAX_NODES = 4096;
     public record Node(String role,int ports) {}
     public record SealSlot(Pos position,ItemContainer container,short slot,ItemStack original,SealData data) {}
     public static final class StoredItem {
@@ -29,6 +30,8 @@ public final class StorageNetwork {
     }
     public final World world;
     public final List<Pos> archives=new ArrayList<>();
+    final List<Pos> itemGates=new ArrayList<>();
+    public final List<Pos> catalogs=new ArrayList<>(),transmitters=new ArrayList<>();
     public final List<SealSlot> seals=new ArrayList<>();
     public final Map<String,Integer> connectedBlocks=new TreeMap<>();
     public int cores, conduits;
@@ -48,6 +51,9 @@ public final class StorageNetwork {
         if(id.contains("AdvancedStorage_Seal_Archive")) { role="Archive"; mask=63; }
         else if(id.contains("AdvancedStorage_Arcane_Core")) { role="Core"; mask=15; }
         else if(id.contains("AdvancedStorage_Runic_Catalog")) { role="Catalog"; mask=11; }
+        else if(id.equals("AdvancedStorage_Archive_Transmitter")) { role="Transmitter"; mask=15; }
+        else if(id.equals(ArchiveItemGate.ITEM_ID)) { role="ItemGate"; mask=63; }
+        else if(ArcaneItemExporter.isExporterBlock(id)) { role=ArcaneItemExporter.ROLE; mask=63; }
         else if(id.startsWith("AdvancedStorage_Runic_Conduit")) {
             role="Conduit";
             mask=id.endsWith("_Curve")?12:id.endsWith("_T")?14:id.endsWith("_Cross")?15:
@@ -99,7 +105,11 @@ public final class StorageNetwork {
         var excess=occupied.subList(retained,occupied.size());
         if(!excess.isEmpty() && (playerInventory==null || !playerInventory.canAddItemStacks(excess,true,true))) return false;
         var replacement=new SimpleItemContainer(SealData.ARCHIVE_SLOTS);
-        for(short slot=0;slot<retained;slot++) replacement.setItemStackForSlot(slot,occupied.get(slot));
+        if(old.getCapacity()<SealData.ARCHIVE_SLOTS) {
+            for(short slot=0;slot<old.getCapacity();slot++) replacement.setItemStackForSlot(slot,old.getItemStack(slot));
+        } else {
+            for(short slot=0;slot<retained;slot++) replacement.setItemStackForSlot(slot,occupied.get(slot));
+        }
         var before=playerInventory==null?null:snapshot(playerInventory);
         var originalComponent=ItemContainerBlock.CODEC.encode(block);
         try {
@@ -140,10 +150,16 @@ public final class StorageNetwork {
                 case "Core" -> "AdvancedStorage_Arcane_Core";
                 case "Archive" -> "AdvancedStorage_Seal_Archive";
                 case "Catalog" -> "AdvancedStorage_Runic_Catalog";
+                case "Transmitter" -> "AdvancedStorage_Archive_Transmitter";
+                case "ItemGate" -> ArchiveItemGate.ITEM_ID;
+                case ArcaneItemExporter.ROLE -> ArcaneItemExporter.ITEM_ID;
                 default -> "AdvancedStorage_Runic_Conduit";
             };
             net.connectedBlocks.merge(itemId,1,Integer::sum);
             switch(n.role) {
+                case "Catalog" -> net.catalogs.add(p);
+                case "Transmitter" -> net.transmitters.add(p);
+                case "ItemGate" -> net.itemGates.add(p);
                 case "Core" -> net.cores++;
                 case "Conduit" -> net.conduits++;
                 case "Archive" -> {
@@ -162,7 +178,7 @@ public final class StorageNetwork {
                 if(visited.contains(q)) continue;
                 var next=node(world,q);
                 if(next==null || (next.ports&(1<<OPP[i]))==0) continue;
-                if(visited.size()>=4096) { net.truncated=true; continue; }
+                if(visited.size()>=MAX_NODES) { net.truncated=true; continue; }
                 visited.add(q); pending.add(q);
             }
         }
@@ -249,7 +265,7 @@ public final class StorageNetwork {
     }
     public static boolean removeSeal(World world,Pos p,short slot,ItemContainer target) {
         var container=archive(world,p);
-        if(container==null || slot<0 || slot>=SealData.ARCHIVE_SLOTS) return false;
+        if(container==null || slot<0 || slot>=Math.min(SealData.ARCHIVE_SLOTS,container.getCapacity())) return false;
         var seal=container.getItemStack(slot);
         if(ItemStack.isEmpty(seal) || !target.canAddItemStack(seal,true,true)) return false;
         var before=snapshot(target);
@@ -259,6 +275,38 @@ public final class StorageNetwork {
             if(!container.setItemStackForSlot(slot,null).succeeded()) throw new IllegalStateException("Seal removal rejected");
             dirty(world,p);return true;
         } catch(RuntimeException ex) {container.setItemStackForSlot(slot,seal);restore(target,before);throw ex;}
+    }
+    /** Plan all ingredient removals before changing any seal or output inventory. */
+    public boolean craft(List<com.hypixel.hytale.server.core.inventory.MaterialQuantity> inputs,List<ItemStack> outputs,ItemContainer destination) {
+        return processRecipe(inputs,outputs,destination,false);
+    }
+    boolean salvage(List<com.hypixel.hytale.server.core.inventory.MaterialQuantity> inputs,List<ItemStack> outputs) {
+        if(inputs.isEmpty() || outputs.isEmpty()) return false;
+        return processRecipe(inputs,outputs,null,true);
+    }
+    private boolean processRecipe(List<com.hypixel.hytale.server.core.inventory.MaterialQuantity> inputs,List<ItemStack> outputs,
+                                  ItemContainer destination,boolean outputToNetwork) {
+        if(!active() || !outputToNetwork && destination==null && !outputs.isEmpty())return false;
+        for(var material:inputs) {
+            int remaining=material.getQuantity();
+            for(var seal:seals)for(var entry:new ArrayList<>(seal.data.entries)) {
+                if(remaining>0 && com.hypixel.hytale.builtin.crafting.component.CraftingManager.matches(material,entry.template))
+                    remaining-=seal.data.remove(entry.template,Math.min(remaining,entry.count));
+            }
+            if(remaining>0)return false;
+        }
+        if(outputToNetwork) for(var output:outputs) {
+            if(ItemStack.isEmpty(output) || SealData.capacity(output)>0) return false;
+            int remaining=output.getQuantity();
+            for(var seal:seals) remaining-=seal.data.insert(output,remaining);
+            if(remaining>0) return false;
+        }
+        if(destination!=null&&!destination.canAddItemStacks(outputs,true,true))return false;
+        var updates=prepare();var before=destination==null?null:snapshot(destination);
+        try {
+            if(destination!=null&&!destination.addItemStacks(outputs,true,true,true).succeeded())throw new IllegalStateException("Craft output rejected");
+            commit(updates);return true;
+        }catch(RuntimeException ex){if(before!=null)restore(destination,before);throw ex;}
     }
     public int deposit(ItemContainer source,short slot) {
         if(!active()) return 0;

@@ -1,0 +1,2 @@
+@BenchSlots = ItemGridStyle(SlotSize: 48, SlotIconSize: 44, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+ItemGrid #Benches { Anchor: (Height: 100); SlotsPerRow: 5; AreItemsDraggable: true; InfoDisplay: None; Style: @BenchSlots; }

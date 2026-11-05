@@ -1,0 +1,6 @@
+$C = "../Common.ui";
+$C.@SecondaryTextButton #AddChannel {
+  Text: "+";
+  Anchor: (Width: 42, Height: 38);
+  Padding: (Horizontal: 0);
+}

@@ -3,6 +3,6 @@ $C = "../Common.ui";
 @PlayerSlots = ItemGridStyle(SlotSize: 48, SlotIconSize: 44, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
 
 ItemGrid #Stored {
-          FlexWeight: 1; SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None;
-          ShowScrollbar: true; ScrollbarStyle: $C.@DefaultScrollbarStyle; Style: @StorageSlots;
+          Anchor: (Full: 0); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None;
+          ShowScrollbar: false; ScrollbarStyle: $C.@DefaultScrollbarStyle; Style: @StorageSlots;
         }

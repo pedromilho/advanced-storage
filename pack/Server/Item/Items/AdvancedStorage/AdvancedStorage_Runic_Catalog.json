@@ -60,7 +60,14 @@
         ]
       }
     },
-    "InteractionHint": "server.interactionHints.openDoor"
+    "InteractionHint": "server.interactionHints.openDoor",
+    "BlockEntity": {
+      "Components": {
+        "ItemContainerBlock": {
+          "Capacity": 10
+        }
+      }
+    }
   },
   "ItemSoundSetId": "ISS_Blocks_Wood",
   "Tags": {

@@ -1,0 +1,4 @@
+Group {
+  HitTestVisible: false;
+  Background: (TexturePath: "Icons/Bench_WorkBench.png", Color: #ffffff(0.22));
+}

@@ -1,0 +1,12 @@
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Top;
+  Padding: (Horizontal: 4, Bottom: 5);
+  Label #PeerName {
+    Style: ( ...$C.@DefaultLabelStyle, FontSize: 14, Wrap: true );
+  }
+  Label #PeerCoordinates {
+    Style: ( ...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8296aa, Wrap: true );
+  }
+}

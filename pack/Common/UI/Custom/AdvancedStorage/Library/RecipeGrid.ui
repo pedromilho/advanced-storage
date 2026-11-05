@@ -1,0 +1,3 @@
+$C = "../../Common.ui";
+@StorageSlots = ItemGridStyle(SlotSize: 56, SlotIconSize: 48, SlotSpacing: 4, SlotBackground: "../../Common/BlockSelectorSlotBackground.png");
+ItemGrid #Recipes { Anchor: (Full: 0); SlotsPerRow: 9; AreItemsDraggable: false; InfoDisplay: None; ShowScrollbar: false; Style: @StorageSlots; }

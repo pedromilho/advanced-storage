@@ -18,6 +18,19 @@ public final class CatalogContainer extends SafeItemContainer {
     private long networkScans;
     private int projectionReads;
     CatalogView view;
+    final BooleanSupplier access;
+    final Predicate<ItemStack> depositAllowed;
+    public pedro.advancedstorage.ui.GridViewport viewport;
+    public void enableViewport(int rows){
+        if(writing!=0)throw new IllegalStateException("Transfer in progress");
+        viewport=new pedro.advancedstorage.ui.GridViewport(9,rows);capacity=(short)(viewport.capacity()+1);
+        items=new ItemStack[capacity];identities=new ItemStack[capacity];refresh();
+    }
+    public boolean scrollTo(int row){
+        if(writing!=0)throw new IllegalStateException("Transfer in progress");
+        if(viewport==null||!viewport.setFirstRow(row))return false;
+        Arrays.fill(identities,null);refresh();return true;
+    }
     ItemStack[] snapshot() {refresh();return items.clone();}
     /** Repack the visible list between gestures; native transfers retain stable source slots. */
     public boolean refreshOrder() {
@@ -27,14 +40,21 @@ public final class CatalogContainer extends SafeItemContainer {
     }
     public void setView(CatalogView view) {
         if(writing!=0) throw new IllegalStateException("Cannot reorder during a transfer");
+        if(viewport!=null)viewport.setFirstRow(0);
         this.view=view;Arrays.fill(identities,null);refresh();
     }
     public CatalogContainer(World world,StorageNetwork.Pos origin) {
         this(world,origin,CatalogView.DEFAULT);
     }
     public CatalogContainer(World world,StorageNetwork.Pos origin,CatalogView view) {
-        super((short)54);
-        this.world=world;this.origin=origin;this.view=view;identities=new ItemStack[54];refresh();
+        this(world,origin,view,()->true);
+    }
+    public CatalogContainer(World world,StorageNetwork.Pos origin,CatalogView view,BooleanSupplier access) {
+        this(world,origin,view,access,item->true);
+    }
+    public CatalogContainer(World world,StorageNetwork.Pos origin,CatalogView view,BooleanSupplier access,Predicate<ItemStack> depositAllowed) {
+        super((short)63);
+        this.world=world;this.origin=origin;this.view=view;this.access=access;this.depositAllowed=depositAllowed;identities=new ItemStack[63];refresh();
     }
     public boolean refresh() {
         if(world==null || writing>0 || refreshing || projectionReads>0) return false;
@@ -42,17 +62,24 @@ public final class CatalogContainer extends SafeItemContainer {
         try {
             networkScans++;
             network=StorageNetwork.scan(world,origin);
+            if(!access.getAsBoolean())network.invalid=true;
             var old=items.clone();
             var entries=network.active()?view.select(network.contents()):new ArrayList<StorageNetwork.StoredItem>();
-            int needed=Math.min(32760,Math.max(54,((entries.size()+17)/9)*9));
+            if(viewport!=null){
+                viewport.setItemCount(entries.size());int start=Math.min(entries.size(),viewport.start());
+                entries=new ArrayList<>(entries.subList(start,Math.min(entries.size(),start+viewport.capacity())));
+            }
+            int needed=viewport==null?Math.min(32760,Math.max(63,((entries.size()+17)/9)*9)):viewport.capacity()+1;
             if(needed>capacity) {
                 capacity=(short)needed;items=Arrays.copyOf(items,needed);identities=Arrays.copyOf(identities,needed);
             }
+            // Keep the last viewport slot free for deposits, even if the item is already visible.
+            int visibleSlots=viewport==null?capacity:viewport.capacity();
             var remaining=new long[entries.size()];
             for(int i=0;i<entries.size();i++) remaining[i]=entries.get(i).count;
             Arrays.fill(items,null);
             // Keep existing slot identities stable while other players use the same network.
-            for(int slot=0;slot<capacity;slot++) if(identities[slot]!=null) {
+            for(int slot=0;slot<visibleSlots;slot++) if(identities[slot]!=null) {
                 for(int i=0;i<entries.size();i++) if(remaining[i]>0 && entries.get(i).template.isStackableWith(identities[slot])) {
                     int quantity=(int)Math.min(remaining[i],Math.max(1,identities[slot].getItem().getMaxStack()));
                     items[slot]=identities[slot].withQuantity(quantity);remaining[i]-=quantity;break;
@@ -61,7 +88,7 @@ public final class CatalogContainer extends SafeItemContainer {
             for(int i=0;i<entries.size();i++) {
                 var entry=entries.get(i);
                 if(remaining[i]==0 || Arrays.stream(items).anyMatch(s->!ItemStack.isEmpty(s) && s.isStackableWith(entry.template))) continue;
-                for(int slot=0;slot<capacity;slot++) if(ItemStack.isEmpty(items[slot])) {
+                for(int slot=0;slot<visibleSlots;slot++) if(ItemStack.isEmpty(items[slot])) {
                     identities[slot]=entry.template;
                     items[slot]=entry.template.withQuantity((int)Math.min(remaining[i],Math.max(1,entry.template.getItem().getMaxStack())));
                     break;
@@ -80,7 +107,8 @@ public final class CatalogContainer extends SafeItemContainer {
         try {
             if(--writing==0) {
                 if(!Arrays.equals(baseline,items)) network.commitProjection(baseline,items);
-                for(int i=0;i<capacity;i++) if(!ItemStack.isEmpty(items[i])) identities[i]=items[i].withQuantity(1);
+                int visibleSlots=viewport==null?capacity:viewport.capacity();
+                for(int i=0;i<visibleSlots;i++) if(!ItemStack.isEmpty(items[i])) identities[i]=items[i].withQuantity(1);
             }
         } finally {super.unlockForWrite();}
     }
@@ -103,6 +131,7 @@ public final class CatalogContainer extends SafeItemContainer {
     @Override public SimpleItemContainer clone() {refresh();return new SimpleItemContainer(this);}
     @Override protected boolean cantAddToSlot(short slot,ItemStack incoming,ItemStack existing) {
         if(ItemStack.isEmpty(incoming)) return false;
+        if(!depositAllowed.test(incoming))return true;
         if(network==null || !network.active() || SealData.capacity(incoming)>0) return true;
         long pending=0;
         if(baseline!=null && writing>0) {

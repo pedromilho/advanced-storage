@@ -1,0 +1,109 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Arcane_Item_Exporter.name",
+    "Description": "server.items.AdvancedStorage_Arcane_Item_Exporter.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Arcane_Item_Exporter.png",
+  "MaxStack": 25,
+  "BlockType": {
+    "CustomModel": "Blocks/AdvancedStorage/Arcane_Item_Exporter.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AdvancedStorage/Arcane_Item_Exporter_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "VariantRotation": "NESW",
+    "PlacementSettings": {
+      "RotationMode": "BlockNormal",
+      "AllowRotationKey": false,
+      "WallPlacementOverrideBlockId": "AdvancedStorage_Arcane_Item_Exporter_Wall",
+      "CeilingPlacementOverrideBlockId": "AdvancedStorage_Arcane_Item_Exporter_Ceiling"
+    },
+    "Tags": {
+      "AdvancedStorageRole": [
+        "Exporter"
+      ]
+    },
+    "HitboxType": "AdvancedStorage_Arcane_Item_Exporter",
+    "IgnoreSupportWhenPlaced": true,
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "PhysicalMaterialId": "Wood",
+    "ParticleColor": "#94633D",
+    "TextureComputedColor": "#916241",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods"
+      }
+    },
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AdvancedStorageOpen"
+          }
+        ]
+      }
+    },
+    "InteractionHint": "server.interactionHints.openDoor",
+    "BlockEntity": {
+      "Components": {
+        "AdvancedStorageItemExporter": {}
+      }
+    }
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 30
+      },
+      {
+        "ResourceTypeId": "Crystal_Shards",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 15
+      },
+      {
+        "ResourceTypeId": "AdvancedStorage_Cobble",
+        "Quantity": 5
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Arcane_Item_Exporter",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

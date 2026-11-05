@@ -1,0 +1,44 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Rock_Sandstone_White_Cobble.name"
+  },
+  "Icon": "Icons/ItemsGenerated/Rock_Sandstone_White_Cobble.png",
+  "Set": "Rock_Sandstone_White",
+  "BlockType": {
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "Textures": [
+      {
+        "Sides": "BlockTextures/Rock_Sandstone_White_Cobble_Side.png",
+        "UpDown": "BlockTextures/Rock_Sandstone_White_Cobble_Top.png",
+        "Weight": 1
+      }
+    ],
+    "ConnectedBlockRuleSet": null,
+    "ParticleColor": "#cca863",
+    "TextureComputedColor": "#CFA766"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Rock"
+    },
+    {
+      "Id": "Rock_Sandstone_White"
+    },
+    {
+      "Id": "AdvancedStorage_Cobble"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Rock"
+    ],
+    "Family": [
+      "Sandstone_White"
+    ]
+  },
+  "Parent": "Rock_Stone_Cobble"
+}

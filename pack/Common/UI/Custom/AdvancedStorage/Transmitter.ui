@@ -1,0 +1,19 @@
+$C = "../Common.ui";
+$C.@PageOverlay {}
+$C.@Container {
+  Anchor: (Width: 900, Height: 650);
+  #Title { $C.@Title { @Text = "Archive Transmitter"; } }
+  #Content {
+    LayoutMode: Top;
+    Label #State { Anchor: (Height: 36); Style: $C.@DefaultLabelStyle; }
+    Label #Empty { Text: "No Traveler's Catalogs found in this world."; Anchor: (Height: 30); Style: $C.@DefaultLabelStyle; }
+    Group #Tablets { FlexWeight: 1; LayoutMode: Top; }
+    Label #Notice { Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+    Group { Anchor: (Height: 44); LayoutMode: Left;
+      $C.@SecondaryTextButton #Previous { Text: "Previous"; Anchor: (Width: 140); }
+      Group { FlexWeight: 1; }
+      $C.@SecondaryTextButton #Next { Text: "Next"; Anchor: (Width: 140); }
+    }
+  }
+}
+$C.@BackButton {}

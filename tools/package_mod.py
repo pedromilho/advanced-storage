@@ -8,12 +8,13 @@ import zipfile
 from datetime import datetime
 
 ROOT=Path(__file__).resolve().parents[1]
-NAME='advanced-storage-0.1.0.jar'
-LEGACY=('advanced-storage-0.1.0.zip','advanced-storage-runtime-0.1.0.jar')
+VERSION=json.loads((ROOT/'pack/manifest.json').read_text(encoding='utf-8'))['Version']
+NAME=f'advanced-storage-{VERSION}.jar'
+LEGACY=('advanced-storage-0.1.0.zip','advanced-storage-runtime-0.1.0.jar','advanced-storage-0.1.0.jar')
 
 
 def package():
-    assets=ROOT/'dist/advanced-storage-0.1.0.zip'
+    assets=ROOT/'dist'/f'advanced-storage-{VERSION}.zip'
     classes=ROOT/'build/runtime-classes'
     output=ROOT/'dist'/NAME
     with zipfile.ZipFile(assets) as source, zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as target:
@@ -43,7 +44,7 @@ def install(output,directory):
     moved=[]
     shutil.copy2(output,pending)
     try:
-        for name in (*LEGACY,NAME):
+        for name in dict.fromkeys((*LEGACY,NAME)):
             old=directory/name
             if old.is_file():
                 backup.mkdir(parents=True,exist_ok=True)

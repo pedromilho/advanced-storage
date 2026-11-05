@@ -1,0 +1,44 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Rock_Basalt_Cobble.name"
+  },
+  "Icon": "Icons/ItemsGenerated/Rock_Basalt_Cobble.png",
+  "Set": "Rock_Basalt",
+  "BlockType": {
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "Textures": [
+      {
+        "Sides": "BlockTextures/Rock_Basalt_Cobblestone.png",
+        "UpDown": "BlockTextures/Rock_Basalt_Cobblestone_Top.png",
+        "Weight": 1
+      }
+    ],
+    "ConnectedBlockRuleSet": null,
+    "ParticleColor": "#545035",
+    "TextureComputedColor": "#42402C"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Rock"
+    },
+    {
+      "Id": "Rock_Basalt"
+    },
+    {
+      "Id": "AdvancedStorage_Cobble"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Rock"
+    ],
+    "Family": [
+      "Basalt"
+    ]
+  },
+  "Parent": "Rock_Stone_Cobble"
+}

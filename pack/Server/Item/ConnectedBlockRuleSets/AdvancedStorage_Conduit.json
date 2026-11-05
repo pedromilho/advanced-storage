@@ -248,6 +248,84 @@
           "AdvancedStorage_Port"
         ]
       }
+    },
+    "Transmitter": {
+      "Type": "TagPattern",
+      "TagPattern": "AdvancedStorage_Transmitter",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "Exporter": {
+      "Type": "TagPattern",
+      "TagPattern": "AdvancedStorage_Arcane_Item_Exporter",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
+    },
+    "TransferEndpoint": {
+      "Type": "TagPattern",
+      "TagPattern": "AdvancedStorage_Transfer_Endpoint",
+      "FaceTags": {
+        "North": ["AdvancedStorage_Port"],
+        "East": ["AdvancedStorage_Port"],
+        "South": ["AdvancedStorage_Port"],
+        "West": ["AdvancedStorage_Port"],
+        "Up": ["AdvancedStorage_Port"],
+        "Down": ["AdvancedStorage_Port"]
+      }
+    },
+    "ItemGate": {
+      "Type": "TagPattern",
+      "TagPattern": "AdvancedStorage_Item_Gate",
+      "FaceTags": {
+        "North": [
+          "AdvancedStorage_Port"
+        ],
+        "East": [
+          "AdvancedStorage_Port"
+        ],
+        "South": [
+          "AdvancedStorage_Port"
+        ],
+        "West": [
+          "AdvancedStorage_Port"
+        ],
+        "Up": [
+          "AdvancedStorage_Port"
+        ],
+        "Down": [
+          "AdvancedStorage_Port"
+        ]
+      }
     }
   },
   "Patterns": [

@@ -1,0 +1,70 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Rock_Magma_Cooled.name"
+  },
+  "ItemLevel": 10,
+  "MaxStack": 100,
+  "Categories": [
+    "Blocks.Rocks"
+  ],
+  "PlayerAnimationsId": "Block",
+  "Set": "Rock_Magma_Cooled",
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Stone",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "BlockParticleSetId": "Stone",
+    "Textures": [
+      {
+        "Weight": 1,
+        "Sides": "BlockTextures/Rock_Magma_Cooled_Side.png",
+        "UpDown": "BlockTextures/Rock_Magma_Cooled.png"
+      }
+    ],
+    "ParticleColor": "#0d0a0a",
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "RandomRotation": "YawStep90",
+    "TransitionTexture": "BlockTextures/Transition_Rock_Magma_Cooled.png",
+    "TransitionToGroups": [
+      "Stone"
+    ],
+    "TextureComputedColor": "#1C181A"
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Rock"
+    },
+    {
+      "Id": "Rock_Magma_Cooled"
+    },
+    {
+      "Id": "AdvancedStorage_Cobble"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Rock"
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Rock_Magma_Cooled.png",
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "IconProperties": {
+    "Scale": 0.58823,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -13.5
+    ]
+  }
+}

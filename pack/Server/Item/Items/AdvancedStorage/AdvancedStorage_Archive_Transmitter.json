@@ -1,0 +1,116 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Archive_Transmitter.name",
+    "Description": "server.items.AdvancedStorage_Archive_Transmitter.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Archive_Transmitter.png",
+  "IconProperties": {
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Scale": 0.25,
+    "Translation": [
+      0,
+      -44
+    ]
+  },
+  "MaxStack": 25,
+  "BlockType": {
+    "CustomModel": "Blocks/AdvancedStorage/Archive_Transmitter.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AdvancedStorage/Archive_Transmitter_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "Tags": {
+      "AdvancedStorageRole": [
+        "Transmitter"
+      ]
+    },
+    "HitboxType": "AdvancedStorage_Archive_Transmitter",
+    "VariantRotation": "NESW",
+    "IgnoreSupportWhenPlaced": true,
+    "Flags": {},
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "ParticleColor": "#5B5F57",
+    "TextureComputedColor": "#5B5F57",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "DropList": "Empty"
+      }
+    },
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AdvancedStorageOpen"
+          }
+        ]
+      }
+    },
+    "InteractionHint": "server.interactionHints.openDoor"
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Void_Essence",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence_Concentrated",
+        "Quantity": 2
+      },
+      {
+        "ResourceTypeId": "Crystal_Shards",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 25
+      },
+      {
+        "ResourceTypeId": "AdvancedStorage_Cobble",
+        "Quantity": 10
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Archive_Transmitter",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

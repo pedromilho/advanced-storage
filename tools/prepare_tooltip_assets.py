@@ -15,7 +15,11 @@ def prepare_tooltip_assets():
             image=Image.open(BytesIO(source.read(name))).convert('RGBA')
             # CustomUI PatchStyle.Border is in texture pixels. Native UI resolves @2x
             # implicitly, but our copied UI paths require a normalized base texture.
-            image.resize(((image.width+1)//2,(image.height+1)//2),Image.Resampling.LANCZOS).save(folder/Path(name).name.replace('@2x',''))
+            normalized=image.resize(((image.width+1)//2,(image.height+1)//2),Image.Resampling.LANCZOS)
+            path=folder/Path(name).name.replace('@2x','')
+            normalized.save(path)
+            if path.stem.endswith('Arrow'):
+                normalized.transpose(Image.Transpose.FLIP_TOP_BOTTOM).save(path.with_stem(path.stem+'Up'))
             obsolete=folder/Path(name).name
             obsolete.unlink(missing_ok=True)
 

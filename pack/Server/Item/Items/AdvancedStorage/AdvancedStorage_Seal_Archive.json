@@ -50,7 +50,7 @@
     "BlockEntity": {
       "Components": {
         "ItemContainerBlock": {
-          "Capacity": 4
+          "Capacity": 5
         }
       }
     },

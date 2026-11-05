@@ -13,8 +13,10 @@ public final class NativeStorageInteraction extends SimpleInstantInteraction {
         var ref=context.getEntity();
         if(target==null || ref==null || !ref.isValid()) return;
         var world=ref.getStore().getExternalData().getWorld();
-        var pos=new StorageNetwork.Pos(target.x,target.y,target.z);
-        if(world.isInThread()) NativeStorageWindows.open(ref,world,pos);
-        else world.execute(()->NativeStorageWindows.open(ref,world,pos));
+        Runnable open=()->{
+            var base=com.hypixel.hytale.server.core.universe.world.chunk.BlockOperations.resolveBaseBlockPosition(world.getChunkStore(),target);
+            NativeStorageWindows.open(ref,world,new StorageNetwork.Pos(base.x,base.y,base.z));
+        };
+        if(world.isInThread())open.run();else world.execute(open);
     }
 }

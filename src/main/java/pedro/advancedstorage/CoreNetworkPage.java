@@ -34,7 +34,15 @@ public final class CoreNetworkPage extends BasicCustomUIPage {
         label(commands,"#CoreCount","Arcane Core x "+net.cores);
         label(commands,"#Conduits","Runic Conduit x "+net.conduits);
         label(commands,"#Archives","Seal Archive x "+net.archives.size());
+        label(commands,"#ItemGates","Archive Item Gate x "+net.connectedBlocks.getOrDefault(ArchiveItemGate.ITEM_ID,0));
         label(commands,"#Catalogs","Runic Catalog x "+net.connectedBlocks.getOrDefault("AdvancedStorage_Runic_Catalog",0));
+        label(commands,"#Transmitters","Archive Transmitter x "+net.transmitters.size());
+        long tablets=TravelerLinks.get(world).tablets.values().stream().filter(t->t.transmitter!=null&&net.transmitters.contains(t.transmitter)).count();
+        label(commands,"#Travelers","Traveler's Catalog x "+tablets);
+        int benches=0;String firstBench="Bench_WorkBench";
+        for(var pos:net.catalogs){var c=NetworkBenches.inventory(world,pos,false);if(c!=null)for(short i=0;i<c.getCapacity();i++)if(NetworkBenches.type(c.getItemStack(i))!=null){if(benches++==0)firstBench=c.getItemStack(i).getItemId();}}
+        label(commands,"#Benches","Installed benches x "+benches);
+        if(!Objects.equals(labels.put("bench-icon",firstBench),firstBench))commands.set("#BenchIcon.ItemId",firstBench);
         label(commands,"#Storage",String.format(Locale.US,"Storage: %,d / %,d items   |   %d seals",net.used(),net.capacity(),net.seals.size()));
     }
     void poll() {

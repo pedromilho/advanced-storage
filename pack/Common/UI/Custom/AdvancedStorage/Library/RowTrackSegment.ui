@@ -1,0 +1,10 @@
+Group {
+  FlexWeight: 1;
+  Button #Jump {
+    Anchor: (Full: 0);
+    Style: (
+      Hovered: (Background: #ffffff(0.15)),
+      Pressed: (Background: #ffffff(0.25))
+    );
+  }
+}

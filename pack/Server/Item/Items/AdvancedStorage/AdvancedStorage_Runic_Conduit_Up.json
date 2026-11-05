@@ -48,7 +48,7 @@
       }
     },
     "ConnectedBlockRuleSet": {
-      "Type": "Patterned",
+      "Type": "AdvancedStorageConduit",
       "RuleSetId": "AdvancedStorage_Conduit",
       "TemplatedShapes": {
         "Straight": {

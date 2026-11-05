@@ -1,0 +1,2 @@
+@Slots = ItemGridStyle(SlotSize: 50, SlotIconSize: 46, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+ItemGrid #PlayerItems { Anchor: (Height: 216); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None; Style: @Slots; }

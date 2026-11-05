@@ -1,6 +1,7 @@
 package pedro.advancedstorage;
 
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.MaterialQuantity;
 import com.hypixel.hytale.server.core.modules.i18n.I18nModule;
 import java.text.Normalizer;
 import java.util.*;
@@ -15,6 +16,13 @@ public record CatalogView(String search,Order order) {
     public static String name(ItemStack item) {
         String translated=I18nModule.get().getMessage("en-US",item.getItem().getTranslationKey());
         return translated==null?item.getItemId().replace("AdvancedStorage_","").replace('_',' '):translated;
+    }
+    static String materialName(MaterialQuantity material) {
+        if (material.getItemId() != null) return name(new ItemStack(material.getItemId(), 1));
+        String resourceId = material.getResourceTypeId();
+        if (resourceId == null) return "Matching material";
+        String translated = I18nModule.get().getMessage("en-US", "server.resourceType." + resourceId + ".name");
+        return translated == null ? resourceId.replaceFirst("^AdvancedStorage_", "").replace('_', ' ') : translated;
     }
     static String normalize(String text) {
         return Normalizer.normalize(text,Normalizer.Form.NFD).replaceAll("\\p{M}","").toLowerCase(Locale.ROOT).trim();

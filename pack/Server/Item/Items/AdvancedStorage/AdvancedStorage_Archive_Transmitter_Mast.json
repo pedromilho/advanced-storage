@@ -1,0 +1,58 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Archive_Transmitter.name",
+    "Description": "server.items.AdvancedStorage_Archive_Transmitter.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [],
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Archive_Transmitter.png",
+  "IconProperties": {
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Scale": 0.25,
+    "Translation": [
+      0,
+      -44
+    ]
+  },
+  "MaxStack": 1,
+  "BlockType": {
+    "DrawType": "Empty",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "Tags": {
+      "AdvancedStorageRole": [
+        "TransmitterPart"
+      ]
+    },
+    "HitboxType": "AdvancedStorage_Archive_Transmitter_Mast",
+    "VariantRotation": "NESW",
+    "IgnoreSupportWhenPlaced": true,
+    "Flags": {},
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "ParticleColor": "#5B5F57",
+    "TextureComputedColor": "#5B5F57",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "DropList": "Empty"
+      }
+    },
+    "Group": "@Tech"
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ]
+  },
+  "Quality": "Technical"
+}

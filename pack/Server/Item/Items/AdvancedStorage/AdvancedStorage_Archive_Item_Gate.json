@@ -1,0 +1,106 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Archive_Item_Gate.name",
+    "Description": "server.items.AdvancedStorage_Archive_Item_Gate.description"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Archive_Item_Gate.png",
+  "MaxStack": 25,
+  "BlockType": {
+    "CustomModel": "Blocks/AdvancedStorage/Archive_Item_Gate.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AdvancedStorage/Archive_Item_Gate_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "Tags": {
+      "AdvancedStorageRole": [
+        "ItemGate"
+      ]
+    },
+    "HitboxType": "AdvancedStorage_Archive_Item_Gate",
+    "VariantRotation": "NESW",
+    "Supporting": {
+      "Up": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "IgnoreSupportWhenPlaced": true,
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "PhysicalMaterialId": "Wood",
+    "ParticleColor": "#5E3924",
+    "TextureComputedColor": "#5E3924",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods"
+      }
+    },
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AdvancedStorageOpen"
+          }
+        ]
+      }
+    },
+    "InteractionHint": "server.interactionHints.openDoor",
+    "BlockEntity": {
+      "Components": {
+        "AdvancedStorageItemGate": {}
+      }
+    }
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "Wood_Trunk",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 15
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 10
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Archive_Item_Gate",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

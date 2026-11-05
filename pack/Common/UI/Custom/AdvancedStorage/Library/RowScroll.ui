@@ -1,0 +1,39 @@
+@ArrowStyle = ButtonStyle(
+  Default: (Background: #243448),
+  Hovered: (Background: #3a546b),
+  Pressed: (Background: #496579),
+  Disabled: (Background: #172331)
+);
+
+Group {
+  FlexWeight: 1;
+  LayoutMode: Top;
+  Button #RowUp {
+    Anchor: (Height: 16);
+    Style: @ArrowStyle;
+    Group { Anchor: (Left: 4, Top: 5, Width: 2, Height: 1); Background: #a7bbcc; HitTestVisible: false; }
+    Group { Anchor: (Left: 3, Top: 6, Width: 4, Height: 1); Background: #a7bbcc; HitTestVisible: false; }
+    Group { Anchor: (Left: 2, Top: 7, Width: 6, Height: 1); Background: #a7bbcc; HitTestVisible: false; }
+  }
+  Group {
+    FlexWeight: 1;
+    Group #RowTrack {
+      Anchor: (Full: 0);
+      LayoutMode: Top;
+      Background: (TexturePath: "../../Common/Scrollbar.png", Border: 3);
+    }
+    Group #RowThumb {
+      Anchor: (Left: 1, Right: 1, Top: 0, Height: 16);
+      Visible: false;
+      HitTestVisible: false;
+      Background: (TexturePath: "../../Common/ScrollbarHandle.png", Border: 3);
+    }
+  }
+  Button #RowDown {
+    Anchor: (Height: 16);
+    Style: @ArrowStyle;
+    Group { Anchor: (Left: 2, Top: 7, Width: 6, Height: 1); Background: #a7bbcc; HitTestVisible: false; }
+    Group { Anchor: (Left: 3, Top: 8, Width: 4, Height: 1); Background: #a7bbcc; HitTestVisible: false; }
+    Group { Anchor: (Left: 4, Top: 9, Width: 2, Height: 1); Background: #a7bbcc; HitTestVisible: false; }
+  }
+}

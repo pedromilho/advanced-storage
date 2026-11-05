@@ -1,5 +1,5 @@
 items.AdvancedStorage_Seal_Archive.name = Seal Archive
-items.AdvancedStorage_Seal_Archive.description = A runic archive with four seal slots.
+items.AdvancedStorage_Seal_Archive.description = A runic archive with five seal slots.
 items.AdvancedStorage_Runic_Conduit.name = Runic Conduit
 items.AdvancedStorage_Runic_Conduit.description = Copper and glass conduit. Automatically connects in six directions to conduits and the Seal Archive. Links the arcane storage network.
 items.AdvancedStorage_Runic_Conduit_Curve.name = Runic Conduit - Curve
@@ -32,6 +32,18 @@ items.AdvancedStorage_Storage_Seal_Tier_5.name = Storage Seal - Tier 5
 items.AdvancedStorage_Storage_Seal_Tier_5.description = Capacity: 128,000 individual items. One Seal Archive slot. Retains its contents when removed.
 
 resourceType.AdvancedStorage_Small_Chest.name = Any Small Chest
+resourceType.AdvancedStorage_Cobble.name = Any Cobble
+
+items.AdvancedStorage_Archive_Transmitter.name = Archive Transmitter
+items.AdvancedStorage_Archive_Transmitter.description = An arcane transmitter with four conduit sockets.
+
+items.AdvancedStorage_Travelers_Catalog.name = Traveler's Catalog
+items.AdvancedStorage_Travelers_Catalog.description = A reinforced stone tablet bearing a luminous blue spiral.
+
+items.AdvancedStorage_Archive_Item_Gate.name = Archive Item Gate
+items.AdvancedStorage_Archive_Item_Gate.description = Transfers items between a storage network and adjacent containers.
+items.AdvancedStorage_Arcane_Item_Exporter.name = Arcane Item Exporter
+items.AdvancedStorage_Arcane_Item_Exporter.description = Transfers items between a storage network and remote chests on matching channels.
 items.AdvancedStorage_Blank_Seal.name = Blank Seal
 items.AdvancedStorage_Blank_Seal.description = An uninscribed seal, ready to receive storage runes.
 items.AdvancedStorage_Runic_Book.name = Runic Book

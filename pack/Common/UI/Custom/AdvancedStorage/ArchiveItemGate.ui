@@ -1,0 +1,39 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {}
+$C.@Container #TransferFrame {
+  Anchor: (Width: 1040, Height: 508);
+  #Title { $C.@Title #TransferTitle { @Text = "Archive Item Gate"; } }
+  #Content {
+    LayoutMode: Top;
+    Group #ChannelTabs {
+      Visible: false;
+      Anchor: (Height: 50);
+      LayoutMode: LeftScrolling;
+      ScrollbarStyle: $C.@DefaultScrollbarStyle;
+      KeepScrollPosition: true;
+    }
+    Group #ExporterNameRow {
+      Visible: false;
+      Anchor: (Height: 52);
+      LayoutMode: Left;
+      Label {
+        Text: "Exporter Name";
+        Anchor: (Width: 124, Height: 36);
+        Style: ( ...$C.@DefaultLabelStyle, VerticalAlignment: Center );
+      }
+      $C.@TextField #ExporterName {
+        Anchor: (Width: 260, Height: 36);
+        PlaceholderText: "Enter a name...";
+      }
+      Group { Anchor: (Width: 8); }
+      $C.@SecondaryTextButton #SaveExporterName {
+        Text: "SAVE";
+        Anchor: (Width: 108, Height: 36);
+        Padding: (Horizontal: 8);
+      }
+    }
+    Group #TransferPanel { LayoutMode: Top; Anchor: (Height: 416); }
+  }
+}
+$C.@BackButton {}

@@ -26,6 +26,30 @@ public final class NativeStorageWindows {
     }
     public static void open(Ref<EntityStore> ref,World world,StorageNetwork.Pos pos) {
         var node=StorageNetwork.node(world,pos);
+        if(node!=null && node.role().equals(ArcaneItemExporter.ROLE) && canAccess(ref,world,pos,ArcaneItemExporter.ROLE)) {
+            var store=ref.getStore();
+            var player=store.getComponent(ref,Player.getComponentType());
+            var playerRef=store.getComponent(ref,PlayerRef.getComponentType());
+            var exporter=ArcaneItemExporter.at(world,pos);
+            if(player!=null && playerRef!=null && exporter!=null)
+                player.getPageManager().openCustomPage(ref,store,new ArchiveItemGatePage(playerRef,world,pos,exporter));
+            return;
+        }
+        if(node!=null && node.role().equals("ItemGate") && canAccess(ref,world,pos,"ItemGate")) {
+            var store=ref.getStore();
+            var player=store.getComponent(ref,Player.getComponentType());
+            var playerRef=store.getComponent(ref,PlayerRef.getComponentType());
+            var gate=ArchiveItemGate.at(world,pos);
+            if(player!=null && playerRef!=null && gate!=null) {
+                player.getPageManager().openCustomPage(ref,store,new ArchiveItemGatePage(playerRef,world,pos,gate));
+            }
+            return;
+        }
+        if(node!=null && node.role().equals("Transmitter") && canAccess(ref,world,pos,"Transmitter")) {
+            var store=ref.getStore();var player=store.getComponent(ref,Player.getComponentType());var playerRef=store.getComponent(ref,PlayerRef.getComponentType());
+            if(player!=null&&playerRef!=null)player.getPageManager().openCustomPage(ref,store,new TransmitterPage(playerRef,world,pos));
+            return;
+        }
         if(node!=null && node.role().equals("Catalog") && canAccess(ref,world,pos,"Catalog")) {
             var player=ref.getStore().getComponent(ref,Player.getComponentType());
             var playerRef=ref.getStore().getComponent(ref,PlayerRef.getComponentType());
@@ -40,7 +64,7 @@ public final class NativeStorageWindows {
             var window=new ContainerBlockWindow(pos.x(),pos.y(),pos.z(),section.getRotationIndex(pos.x(),pos.y(),pos.z()),type,
                 new CatalogContainer(world,pos,CatalogSettingsPage.preference(playerRef)));
             var page=new CatalogSettingsPage(playerRef,world,pos,window,inventory.getInventory(),hotbar.getInventory(),backpack==null?null:backpack.getInventory());
-            player.getPageManager().openCustomPageWithWindows(ref,store,page,window);return;
+            player.getPageManager().openCustomPageWithWindows(ref,store,page,page.windows());return;
         }
         if(node!=null && node.role().equals("Core") && canAccess(ref,world,pos,"Core")) {
             var store=ref.getStore();var player=store.getComponent(ref,Player.getComponentType());
@@ -87,6 +111,27 @@ public final class NativeStorageWindows {
                 new CatalogSettingsPage(playerRef,world,pos,window,inventory.getInventory(),hotbar.getInventory(),backpack==null?null:backpack.getInventory()),window);
         } else player.getPageManager().setPageWithWindows(ref,store,Page.Bench,true,window);
     }
+    public static void openRemote(Ref<EntityStore> ref,World world,TravelerLinks.Session session) {
+        if(!session.valid(ref))return;
+        RemoteNetworkLease.prepare(session,ref).whenComplete((lease,error)->world.execute(()->{
+            if(error!=null){world.getLogger().atWarning().withCause(error).log("Could not load tablet network");return;}
+            if(!session.valid(ref)){lease.close();return;}
+            try {openRemoteLoaded(ref,world,session,lease);}catch(RuntimeException ex){lease.close();throw ex;}
+        }));
+    }
+    private static void openRemoteLoaded(Ref<EntityStore> ref,World world,TravelerLinks.Session session,RemoteNetworkLease lease) {
+        var store=ref.getStore();var player=store.getComponent(ref,Player.getComponentType());var playerRef=store.getComponent(ref,PlayerRef.getComponentType());
+        var inventory=store.getComponent(ref,InventoryComponent.Storage.getComponentType());var hotbar=store.getComponent(ref,InventoryComponent.Hotbar.getComponentType());var backpack=store.getComponent(ref,InventoryComponent.Backpack.getComponentType());
+        if(player==null||playerRef==null||inventory==null||hotbar==null){lease.close();return;}
+        var origin=session.origin()==null?new StorageNetwork.Pos(0,-1,0):session.origin();
+        var container=new CatalogContainer(world,origin,CatalogSettingsPage.preference(playerRef),()->session.valid(ref)&&session.connected(),session::canDeposit);
+        var window=new ContainerBlockWindow(origin.x(),origin.y(),origin.z(),0,BlockType.getAssetMap().getAsset(TransmitterStructure.BASE),container) {
+            @Override public boolean validate(Ref<EntityStore> actor,ComponentAccessor<EntityStore> accessor){return session.valid(actor);}
+            @Override public void onClose0(Ref<EntityStore> actor,ComponentAccessor<EntityStore> accessor){try{super.onClose0(actor,accessor);}finally{lease.close();}}
+        };
+        var page=new CatalogSettingsPage(playerRef,world,origin,window,inventory.getInventory(),hotbar.getInventory(),backpack==null?null:backpack.getInventory(),session);
+        if(!player.getPageManager().openCustomPageWithWindows(ref,store,page,page.windows()))lease.close();
+    }
     static void status(PlayerRef player,StorageNetwork net) {
         String state=net.truncated?"Network too large":net.invalid?"Unreadable storage seal":net.cores==0?"Offline - connect an Arcane Core":net.seals.isEmpty()?"Insert storage seals into an Archive":"Network online";
         player.sendMessage(Message.raw(String.format(Locale.US,"%s | %,d / %,d items | %d seals | %d archives",state,net.used(),net.capacity(),net.seals.size(),net.archives.size())));
@@ -122,7 +167,10 @@ public final class NativeStorageWindows {
                 var order=catalog.view.order()==CatalogView.Order.QUANTITY?CatalogView.Order.ALPHABETICAL:CatalogView.Order.QUANTITY;
                 var view=new CatalogView(catalog.view.search(),order);catalog.setView(view);
                 var player=store.getComponent(ref,PlayerRef.getComponentType());
-                if(player!=null) {CatalogSettingsPage.PREFERENCES.put(player.getUuid(),view);player.sendMessage(Message.raw("Sort: "+(order==CatalogView.Order.QUANTITY?"Quantity":"Alphabetical")));}
+                if(player!=null) {
+                    AdvancedStoragePlugin.catalogPreferences.remember(player.getUuid(), view);
+                    player.sendMessage(Message.raw("Sort: "+(order==CatalogView.Order.QUANTITY?"Quantity":"Alphabetical")));
+                }
                 invalidate();return;
             }
             if(getItemContainer() instanceof ArchiveContainer archive && action instanceof com.hypixel.hytale.protocol.packets.window.SortItemsAction) {

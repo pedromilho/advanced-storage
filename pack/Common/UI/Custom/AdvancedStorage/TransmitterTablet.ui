@@ -1,0 +1,13 @@
+$C = "../Common.ui";
+Group {
+  Anchor: (Height: 72); LayoutMode: Left;
+  Group { Anchor: (Width: 64, Height: 64); Background: "Icons/AdvancedStorage_Travelers_Catalog.png"; }
+  Group { Anchor: (Width: 12); }
+  Group { FlexWeight: 1; LayoutMode: Top;
+    Label #Name { Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+    Label #Status { Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+  }
+  $C.@SecondaryTextButton #Connect { Text: "Connect"; Anchor: (Width: 120, Height: 44); }
+  Group { Anchor: (Width: 8); }
+  $C.@SecondaryTextButton #Disconnect { Text: "Disconnect"; Anchor: (Width: 120, Height: 44); }
+}

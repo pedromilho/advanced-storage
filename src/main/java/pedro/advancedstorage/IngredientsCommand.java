@@ -19,7 +19,8 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 public final class IngredientsCommand extends AbstractPlayerCommand {
     public static final List<String> OPTIONS=List.of("seal_archive","runic_conduit","arcane_core","runic_catalog",
         "blank_seal","runic_book","storage_seal_tier_1","storage_seal_tier_2","storage_seal_tier_3",
-        "storage_seal_tier_4","storage_seal_tier_5");
+        "storage_seal_tier_4","storage_seal_tier_5","archive_transmitter","travelers_catalog",
+        "archive_item_gate","arcane_item_exporter");
     private final RequiredArg<String> target;
     public IngredientsCommand() {
         super("advancedstorage","Receive the ingredients for one Advanced Storage craft");
@@ -46,7 +47,7 @@ public final class IngredientsCommand extends AbstractPlayerCommand {
             if(ingredient==null) ingredient=switch(String.valueOf(material.getResourceTypeId())) {
                 case "Wood_Trunk" -> "Wood_Oak_Trunk";
                 case "Crystal_Shards" -> "Ingredient_Crystal_White";
-                case "Bricks" -> "Rock_Stone_Brick";
+                case "AdvancedStorage_Cobble" -> "Rock_Stone_Cobble";
                 case "AdvancedStorage_Small_Chest" -> "Furniture_Crude_Chest_Small";
                 default -> throw new IllegalArgumentException("Unsupported ingredient group: "+material.getResourceTypeId());
             };

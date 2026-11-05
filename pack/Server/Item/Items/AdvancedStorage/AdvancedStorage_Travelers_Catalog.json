@@ -1,0 +1,88 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AdvancedStorage_Travelers_Catalog.name",
+    "Description": "server.items.AdvancedStorage_Travelers_Catalog.description"
+  },
+  "PlayerAnimationsId": "Item",
+  "Categories": [
+    "Upgrade"
+  ],
+  "Quality": "Common",
+  "MaxStack": 1,
+  "Icon": "Icons/ItemsGenerated/AdvancedStorage_Travelers_Catalog.png",
+  "Model": "Items/AdvancedStorage/Travelers_Catalog_Held_Front.blockymodel",
+  "Texture": "Items/AdvancedStorage/Travelers_Catalog_Texture.png",
+  "IconProperties": {
+    "Scale": 0.8,
+    "Rotation": [
+      0,
+      15,
+      0
+    ],
+    "Translation": [
+      0,
+      -16
+    ]
+  },
+  "Light": {
+    "Color": "#26e",
+    "Radius": 2
+  },
+  "Tags": {
+    "Type": [
+      "Tool"
+    ],
+    "Family": [
+      "AdvancedStorage"
+    ],
+    "AdvancedStorageRole": [
+      "TravelersCatalog"
+    ]
+  },
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "AdvancedStorageTraveler"
+        }
+      ]
+    }
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "AdvancedStorage_Cobble",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 5
+      },
+      {
+        "ResourceTypeId": "Crystal_Shards",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence_Concentrated",
+        "Quantity": 1
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "AdvancedStorage_Travelers_Catalog",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Arcanebench",
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ]
+      }
+    ]
+  }
+}

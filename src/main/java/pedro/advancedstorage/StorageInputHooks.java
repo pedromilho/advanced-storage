@@ -14,6 +14,13 @@ final class StorageInputHooks implements SubPacketHandler {
     StorageInputHooks(IPacketHandler handler) {this.handler=handler;}
     public void registerHandlers() {
         if(!(handler instanceof GamePacketHandler game)) return;
+        IWorldPacketHandler.<com.hypixel.hytale.protocol.packets.window.CloseWindow>registerHandler(game,
+            com.hypixel.hytale.protocol.packets.window.CloseWindow.PACKET_ID,(packet,playerRef,ref,world,store)->{
+                var player=store.getComponent(ref,Player.getComponentType());
+                var closed=CatalogSettingsPage.RECENTLY_CLOSED.get(playerRef.getUuid());
+                if(player!=null&&closed!=null&&closed.contains(packet.id)&&player.getWindowManager().getWindow(packet.id)==null)return;
+                game.handleCloseWindow(packet,playerRef,ref,world,store);
+            });
         game.registerHandler(CustomPageEvent.PACKET_ID, packet->{
             var event=(CustomPageEvent)packet;
             var page=CatalogSettingsPage.OPEN.get(game.getPlayerRef().getUuid());
@@ -23,6 +30,7 @@ final class StorageInputHooks implements SubPacketHandler {
         IWorldPacketHandler.<ClientOpenWindow>registerHandler(game,ClientOpenWindow.PACKET_ID,(packet,playerRef,ref,world,store)->{
             var player=store.getComponent(ref,Player.getComponentType());
             if(player==null) return;
+            if(packet.type==WindowType.PocketCrafting && player.getPageManager().getCustomPage() instanceof TransmitterPage page) {page.dismiss();return;}
             if(player.getPageManager().getCustomPage() instanceof CatalogSettingsPage page) {
                 CatalogSettingsPage.LOGGER.atInfo().log("[AdvancedStorage/Input] NativeOpenWindow/%s",packet.type);
                 if(packet.type==WindowType.PocketCrafting) {page.close();return;}

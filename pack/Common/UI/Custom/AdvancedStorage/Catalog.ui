@@ -4,9 +4,27 @@ $C = "../Common.ui";
 
 Group #StorageRoot {
 $C.@PageOverlay {}
-$C.@Container {
+Group #CatalogFrame {
+Anchor: (Width: 1592, Height: 700);
+Group #BenchSidebar {
+  Anchor: (Left: 0, Top: 0, Width: 224, Height: 700); LayoutMode: Top;
+  Group {
+    Anchor: (Height: 44);
+    $C.@SecondaryTextButton #StorageMode {
+      Text: "Network storage";
+      Anchor: (Left: 0, Top: 0, Width: 212, Height: 44);
+      Padding: (Horizontal: 12);
+    }
+  }
+  Group { Anchor: (Height: 8); }
+  Group #BenchList { FlexWeight: 1; LayoutMode: TopScrolling; ScrollbarStyle: $C.@DefaultScrollbarStyle; }
+}
+$C.@Container #CatalogPanel {
   Anchor: (Width: 1120, Height: 700);
-  #Title { $C.@Title { @Text = "Runic Catalog"; } }
+  #Title { $C.@Title #CatalogTitle {
+    @Text = "RUNIC CATALOG";
+    Style: ( ...$C.@TitleStyle, HorizontalAlignment: Center, RenderUppercase: false );
+  } }
   #Content {
     LayoutMode: Top;
     Group {
@@ -23,13 +41,46 @@ $C.@Container {
       FlexWeight: 1; LayoutMode: Left;
       Group {
         Anchor: (Width: 554); LayoutMode: Top;
-        Label { Text: "Network storage"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
-        Group #StoredHost { FlexWeight: 1; LayoutMode: Top;
-ItemGrid #Stored {
-          FlexWeight: 1; SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None;
-          ShowScrollbar: true; ScrollbarStyle: $C.@DefaultScrollbarStyle; Style: @StorageSlots;
+        Label #StoredLabel { Text: "Network storage"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+        Group #NetworkContent { FlexWeight: 1;
+        Group #RecipePanel { Visible: false; Anchor: (Top: 0, Left: 0, Width: 536, Bottom: 0); LayoutMode: Top;
+          Group #RecipesHost { Anchor: (Height: 236); LayoutMode: Top;
+            Group #RecipeCanvas { Anchor: (Width: 536, Height: 236);
+              ItemGrid #Recipes { Anchor: (Full: 0); SlotsPerRow: 9; AreItemsDraggable: false; InfoDisplay: None; ShowScrollbar: false; Style: @StorageSlots; }
+            }
+          }
+          Label #RecipeName { Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+          Group {
+            Anchor: (Height: 128);
+            LayoutMode: TopScrolling;
+            ScrollbarStyle: $C.@DefaultScrollbarStyle;
+            Label #Ingredients {
+              Anchor: (Height: 26);
+              Style: ( ...$C.@DefaultLabelStyle, Wrap: true );
+            }
+          }
+          Group { Anchor: (Height: 44); LayoutMode: Left;
+            $C.@SecondaryTextButton #CraftOne { Text: "Craft"; Anchor: (Width: 125); }
+            Group { Anchor: (Width: 8); }
+            $C.@SecondaryTextButton #CraftTen {
+              Text: "Craft x10";
+              Anchor: (Width: 137);
+              Padding: (Horizontal: 8);
+            }
+            Group { Anchor: (Width: 8); }
+            $C.@SecondaryTextButton #StopCraft { Text: "Stop"; Anchor: (Width: 115); }
+            Group { Anchor: (Width: 8); }
+            $C.@SecondaryTextButton #UpgradeBench { Text: "Upgrade"; Anchor: (Width: 135); }
+          }
+          Label #BenchStatus { Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
         }
-}
+          Group #StoredHost { Anchor: (Top: 0, Left: 0, Width: 536, Height: 416); LayoutMode: Top;
+            Group #StoredCanvas { Anchor: (Width: 536, Height: 416);
+              ItemGrid #Stored { Anchor: (Full: 0); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None; ShowScrollbar: false; Style: @StorageSlots; }
+            }
+          }
+          Group #RowControls { Anchor: (Left: 544, Top: 0, Width: 10, Height: 416); LayoutMode: Top; }
+        }
       }
       Group { Anchor: (Width: 20); }
       Group {
@@ -42,6 +93,19 @@ ItemGrid #Inventory { Anchor: (Height: 208); SlotsPerRow: 9; AreItemsDraggable: 
         Group #HotbarHost { Anchor: (Height: 48); LayoutMode: Top;
 ItemGrid #Hotbar { Anchor: (Height: 48); SlotsPerRow: 9; AreItemsDraggable: true; InfoDisplay: None; Style: @PlayerSlots; }
 }
+        Group #BenchesGroup { LayoutMode: Top; Anchor: (Height: 186);
+          Group { Anchor: (Height: 38); }
+          Label { Text: "Installed benches"; Anchor: (Left: 0, Width: 464, Height: 26); Style: ( ...$C.@DefaultLabelStyle, HorizontalAlignment: Center ); }
+          Label { Text: "Place workbenches here to use them in the network."; Anchor: (Left: 0, Width: 464, Height: 22); Style: ( ...$C.@DefaultLabelStyle, FontSize: 14, HorizontalAlignment: Center ); }
+          Group {
+            Anchor: (Height: 100);
+            Group {
+              Anchor: (Left: 104, Top: 0, Width: 256, Height: 100);
+              Group #BenchesHost { Anchor: (Full: 0); LayoutMode: Top; }
+              Group #BenchGhosts { Anchor: (Full: 0); HitTestVisible: false; }
+            }
+          }
+        }
         Group #BackpackGroup {
           LayoutMode: Top; FlexWeight: 1;
           Label { Text: "Backpack"; Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
@@ -54,8 +118,10 @@ ItemGrid #Backpack {
         }
       }
     }
-    Label #Notice { Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
+    Label #Notice { Visible: false; Anchor: (Height: 26); Style: $C.@DefaultLabelStyle; }
   }
 }
+}
 $C.@BackButton {}
+Group #PageTooltipHost { Anchor: (Full: 0); HitTestVisible: false; }
 }

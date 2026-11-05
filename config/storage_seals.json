@@ -1,6 +1,6 @@
 {
   "capacity_unit": "individual_items",
-  "archive_slots": 4,
+  "archive_slots": 5,
   "tiers": [
     { "tier": 1, "capacity": 1000, "color": "#5ACBBE", "quality": "Common" },
     { "tier": 2, "capacity": 4000, "color": "#77CE83", "quality": "Uncommon" },

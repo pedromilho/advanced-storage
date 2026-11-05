@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0
+
+- Added remote storage access with the Archive Transmitter and Traveler's Catalog.
+- Added network crafting, bench upgrades, and salvaging in the Runic Catalog.
+- Added the Archive Item Gate and named Arcane Item Exporters with channel filters.
+- Runic Conduits bridge compatible inventories and can collect finished Furnace output.
+- Increased the Seal Archive to five slots and refreshed the Catalog interface and item tooltips.
+- Added four recipes and made the Any Cobble ingredient accept natural stone.
+- Targets Hytale 0.7.5.
+
 ## 0.1.0-beta
 
 Primeira versão beta pública.

@@ -1,0 +1,8 @@
+$C = "../Common.ui";
+Group {
+  Anchor: (Height: 48);
+  Button #Select { Anchor: (Left: 0, Top: 0, Width: 212, Height: 44); Style: $C.@SecondaryButtonStyle; LayoutMode: Left; Padding: (Horizontal: 6);
+    ItemIcon #Icon { HitTestVisible: false; Anchor: (Width: 36, Height: 36); ShowItemTooltip: false; }
+    Label #Name { HitTestVisible: false; FlexWeight: 1; Style: ( ...$C.@DefaultLabelStyle, FontSize: 13, VerticalAlignment: Center ); }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "Parent": "AdvancedStorage_Arcane_Item_Exporter",
+  "Recipe": null,
+  "Categories": [],
+  "BlockType": {
+    "CustomModel": "Blocks/AdvancedStorage/Arcane_Item_Exporter_Ceiling.blockymodel",
+    "HitboxType": "AdvancedStorage_Arcane_Item_Exporter_Ceiling",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods",
+        "ItemId": "AdvancedStorage_Arcane_Item_Exporter"
+      }
+    }
+  }
+}

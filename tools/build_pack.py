@@ -1,12 +1,13 @@
 """Export the Blockbench source and build an installable Hytale asset pack.
 
-No game assets are redistributed. Coordinate, quaternion and face conventions
-follow Hypixel's official Blockbench exporter (see README.md).
+Coordinate, quaternion and face conventions follow Hypixel's official
+Blockbench exporter (see README.md).
 """
 from __future__ import annotations
 
 import argparse
 import base64
+import copy
 import itertools
 import json
 import math
@@ -21,6 +22,8 @@ DEFAULT_MODEL = ROOT / 'modelos' / 'Seal Archive - Textured v2.bbmodel'
 CONDUIT_MODEL = ROOT / 'modelos' / 'RunicConduit - Textured.bbmodel'
 CORE_MODEL = ROOT/'modelos/corrected/ArcaneCore - Textured.bbmodel'
 CATALOG_MODEL = ROOT/'modelos/corrected/RunicCatalog - Textured.bbmodel'
+TRANSMITTER_MODEL = ROOT/'modelos/ArchiveTransmitter - Astrolabe.bbmodel'
+TRAVELERS_MODEL = ROOT/"modelos/Traveler's Catalog.bbmodel"
 SEAL_MODELS = {f'Storage_Seal_Tier_{tier}':ROOT/f'modelos/seals/Storage Seal - Tier {tier}.bbmodel'
                for tier in range(1,6)}
 CONDUIT_VARIANTS = {
@@ -60,6 +63,28 @@ def quaternion(rotation):
         q[axis] = math.sin(angle)
         result = multiply(q, result)
     return dict(zip('xyzw', [round(v, 12) for v in result]))
+
+
+def turn_tablet_geometry(source):
+    """Bake the handheld tablet's half turn into its geometry and face UVs."""
+    result = copy.deepcopy(source)
+    for obj in result.get('groups', []) + result['elements']:
+        if any(obj.get('rotation', [0, 0, 0])):
+            raise ValueError('Tablet geometry bake expects unrotated source parts.')
+        if 'origin' in obj:
+            x, y, z = obj['origin']
+            obj['origin'] = [-x, y, -z]
+    for el in result['elements']:
+        lo, hi = el['from'], el['to']
+        el['from'] = [-hi[0], lo[1], -hi[2]]
+        el['to'] = [-lo[0], hi[1], -lo[2]]
+        faces = el['faces']
+        faces['north'], faces['south'] = faces['south'], faces['north']
+        faces['east'], faces['west'] = faces['west'], faces['east']
+        for name in ('up', 'down'):
+            a, b, c, d = faces[name]['uv']
+            faces[name]['uv'] = [c, d, a, b]
+    return result
 
 
 def export_model(source, *, turn_to_player=True):
@@ -184,6 +209,19 @@ def export_model(source, *, turn_to_player=True):
     return {'nodes': nodes, 'format': 'prop', 'lod': 'auto'}, png, len(exported)
 
 
+def exporter_mount(model, pitch, transform_position):
+    """Rotate the whole exporter around its mounting surface, including its texture."""
+    mounted = copy.deepcopy(model)
+    rotation = quaternion([pitch, 0, 0])
+    for node in mounted['nodes']:
+        p, q = node['position'], node['orientation']
+        node['position'] = vector(transform_position(p['x'], p['y'], p['z']))
+        node['orientation'] = dict(zip('xyzw', multiply(
+            [rotation[axis] for axis in 'xyzw'], [q[axis] for axis in 'xyzw']
+        )))
+    return mounted
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', type=Path, default=DEFAULT_MODEL)
@@ -220,6 +258,20 @@ def main():
     catalog_source = json.loads(CATALOG_MODEL.read_text(encoding='utf-8-sig'))
     catalog_model, catalog_texture, _ = export_model(catalog_source, turn_to_player=False)
     models.append(('Runic_Catalog', catalog_model, catalog_texture))
+    transmitter_source = json.loads(TRANSMITTER_MODEL.read_text(encoding='utf-8-sig'))
+    transmitter_model, transmitter_texture, _ = export_model(transmitter_source, turn_to_player=False)
+    models.append(('Archive_Transmitter', transmitter_model, transmitter_texture))
+    gate_source = json.loads((ROOT/'modelos/ArchiveItemGate.bbmodel').read_text(encoding='utf-8-sig'))
+    gate_model, gate_texture, _ = export_model(gate_source, turn_to_player=False)
+    models.append(('Archive_Item_Gate', gate_model, gate_texture))
+    exporter_source = json.loads((ROOT/'modelos/ArcaneItemExporter.bbmodel').read_text(encoding='utf-8-sig'))
+    exporter_model, exporter_texture, _ = export_model(exporter_source, turn_to_player=False)
+    models.append(('Arcane_Item_Exporter', exporter_model, exporter_texture))
+    models.append(('Arcane_Item_Exporter_Wall', exporter_mount(exporter_model, 90, lambda x,y,z: (x, 16-z, y-16)), None))
+    models.append(('Arcane_Item_Exporter_Ceiling', exporter_mount(exporter_model, 180, lambda x,y,z: (x, 32-y, -z)), None))
+    travelers_source = json.loads(TRAVELERS_MODEL.read_text(encoding='utf-8-sig'))
+    travelers_model, travelers_texture, _ = export_model(turn_tablet_geometry(travelers_source), turn_to_player=False)
+    models.append(('Travelers_Catalog', travelers_model, travelers_texture))
     for variant, path in CONDUIT_VARIANTS.items():
         variant_source = json.loads(path.read_text(encoding='utf-8-sig'))
         variant_model, variant_texture, _ = export_model(variant_source, turn_to_player=False)
@@ -229,13 +281,16 @@ def main():
         seal_model,seal_texture,_=export_model(seal_source,turn_to_player=False)
         models.append((name,seal_model,seal_texture))
     for name, exported_model, png in models:
-        category='Items' if name in SEAL_MODELS else 'Blocks'
-        output = pack/f'Common/{category}/AdvancedStorage/{name}.blockymodel'
+        category='Items' if name in SEAL_MODELS or name == 'Travelers_Catalog' else 'Blocks'
+        model_name = 'Travelers_Catalog_Held_Front' if name == 'Travelers_Catalog' else name
+        output = pack/f'Common/{category}/AdvancedStorage/{model_name}.blockymodel'
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(exported_model, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
-        texture_file = output.with_name(f'{name}_Texture.png')
-        texture_file.write_bytes(png)
-        staged += [output, texture_file]
+        staged.append(output)
+        if png is not None:
+            texture_file = output.with_name(f'{name}_Texture.png')
+            texture_file.write_bytes(png)
+            staged.append(texture_file)
     manifest = json.loads((pack/'manifest.json').read_text())
     archive = ROOT/'dist'/f'advanced-storage-{manifest["Version"]}.zip'
     archive.parent.mkdir(parents=True, exist_ok=True)

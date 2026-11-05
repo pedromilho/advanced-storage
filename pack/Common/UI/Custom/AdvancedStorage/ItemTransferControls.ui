@@ -1,0 +1,63 @@
+$C = "../Common.ui";
+@FilterSlots = ItemGridStyle(SlotSize: 36, SlotIconSize: 32, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+Group {
+  Anchor: (Height: 388);
+  LayoutMode: Left;
+  Group #TransferOptions {
+    Anchor: (Width: 112);
+    LayoutMode: Top;
+    Label { Text: "Transfer"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+    Group {
+      Anchor: (Height: 34);
+      $C.@CheckBox #Receive { Anchor: (Left: 0, Top: 6, Width: 22, Height: 22); }
+      Label { Text: "Receive"; Anchor: (Left: 31, Top: 0, Width: 78, Height: 34); Style: ( ...$C.@DefaultLabelStyle, VerticalAlignment: Center ); }
+    }
+    Group {
+      Anchor: (Height: 34);
+      $C.@CheckBox #Send { Anchor: (Left: 0, Top: 6, Width: 22, Height: 22); }
+      Label { Text: "Send"; Anchor: (Left: 31, Top: 0, Width: 78, Height: 34); Style: ( ...$C.@DefaultLabelStyle, VerticalAlignment: Center ); }
+    }
+    Group {
+      Anchor: (Height: 34);
+      $C.@CheckBox #SendAll { Anchor: (Left: 0, Top: 6, Width: 22, Height: 22); }
+      Label { Text: "Send All"; Anchor: (Left: 31, Top: 0, Width: 78, Height: 34); Style: ( ...$C.@DefaultLabelStyle, VerticalAlignment: Center ); }
+    }
+    Group #ExporterPeers {
+      Visible: false;
+      Anchor: (Width: 164, Height: 258);
+      Padding: (Top: 12, Right: 8);
+      LayoutMode: Top;
+      Label { Text: "Exporters on channel"; Anchor: (Height: 24); Style: ( ...$C.@DefaultLabelStyle, FontSize: 14, RenderBold: true ); }
+      Group #ExporterPeerList {
+        FlexWeight: 1;
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        KeepScrollPosition: true;
+      }
+    }
+  }
+  Group {
+    Anchor: (Width: 160);
+    LayoutMode: Top;
+    Label { Text: "Receive Filters"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+    ItemGrid #ReceiveGrid { Anchor: (Height: 360); SlotsPerRow: 4; AreItemsDraggable: false; InfoDisplay: None; DisplayItemQuantity: false; Style: @FilterSlots; }
+  }
+  Group { Anchor: (Width: 20); }
+  Group {
+    Anchor: (Width: 160);
+    LayoutMode: Top;
+    Label { Text: "Send Filters"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+    ItemGrid #SendGrid { Anchor: (Height: 360); SlotsPerRow: 4; AreItemsDraggable: false; InfoDisplay: None; DisplayItemQuantity: false; Style: @FilterSlots; }
+  }
+  Group { Anchor: (Width: 28); }
+  Group {
+    FlexWeight: 1;
+    LayoutMode: Top;
+    Label { Text: "Inventory"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+    Group #PlayerItemsHost { LayoutMode: Top; Anchor: (Height: 216); }
+    Label { Text: "Hotbar"; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
+    Group #PlayerHotbarHost { LayoutMode: Top; Anchor: (Height: 54); }
+  }
+}
+Label { Text: "Drag an item into a filter slot. Right-click a filter to clear it."; Anchor: (Height: 28); Style: $C.@DefaultLabelStyle; }
