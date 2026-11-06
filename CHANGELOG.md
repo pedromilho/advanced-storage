@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Updated compatibility to Hytale 0.7.6.
+
 ## 1.0.0
 
 - Added remote storage access with the Archive Transmitter and Traveler's Catalog.

@@ -10,7 +10,8 @@ from datetime import datetime
 ROOT=Path(__file__).resolve().parents[1]
 VERSION=json.loads((ROOT/'pack/manifest.json').read_text(encoding='utf-8'))['Version']
 NAME=f'advanced-storage-{VERSION}.jar'
-LEGACY=('advanced-storage-0.1.0.zip','advanced-storage-runtime-0.1.0.jar','advanced-storage-0.1.0.jar')
+LEGACY=('advanced-storage-0.1.0.zip','advanced-storage-runtime-0.1.0.jar','advanced-storage-0.1.0.jar',
+        'advanced-storage-1.0.0.jar')
 
 
 def package():

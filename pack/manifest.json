@@ -1,10 +1,10 @@
 {
   "Group": "Pedro",
   "Name": "AdvancedStorage",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Description": "Arcane storage networks for Hytale with remote access, crafting, and item transfers.",
   "Authors": [{ "Name": "Pedro" }],
-  "ServerVersion": "=0.7.5",
+  "ServerVersion": "=0.7.6",
   "Dependencies": {},
   "OptionalDependencies": {},
   "DisabledByDefault": false,

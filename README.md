@@ -4,7 +4,7 @@ Create magical storage networks, access your items from a single interface, and 
 
 ## Installation
 
-Download `advanced-storage-1.0.0.jar` from the [releases page](https://github.com/pedromilho/advanced-storage/releases). Place the file in `UserData/Mods` and enable **AdvancedStorage** in your world. If you are upgrading from the beta, replace the previous JAR. This release targets Hytale **0.7.5**.
+Use Advanced Storage **1.0.1** with Hytale **0.7.6**. Place `advanced-storage-1.0.1.jar` in `UserData/Mods` and enable **AdvancedStorage** in your world. Replace the previous JAR when upgrading. Published builds are listed on the [releases page](https://github.com/pedromilho/advanced-storage/releases).
 
 ## Setting up the network
 
