@@ -44,6 +44,6 @@ All fifteen mod recipes are available at the **Arcane Workbench → Misc**.
 
 ## License
 
-See [LICENSE](LICENSE). Hytale and its original assets belong to their respective owners.
+The original Advanced Storage code and assets are proprietary. Official releases may be installed and played in Hytale. See [LICENSE](LICENSE) for the terms.
 
 The Catalog UI now uses the internal [UI component library](docs/ui-library.md). Network and recipe lists use the library’s vertical navigation track and a tooltip anchored to the visible slot.
